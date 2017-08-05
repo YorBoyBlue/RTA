@@ -53,9 +53,11 @@ public class AsteroidManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
+
 		if(totalAsteroids < 10)
 			MaintainAstroids();
-		totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
+		
 		Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
 	}
 
@@ -98,6 +100,10 @@ public class AsteroidManager : MonoBehaviour {
 
 	public void setLargeAsteroids(int newAmount){
 		largeAsteroids = newAmount;
+	}
+
+	public int getTotalAstroids(){
+		return totalAsteroids;
 	}	
 
 	public void Spawn(int size, Vector3 location){
