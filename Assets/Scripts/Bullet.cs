@@ -6,12 +6,10 @@ public class Bullet : MonoBehaviour {
 
 	public Vector2 velocity;
 
-	TrailRenderer tail;
 	Transform thisTransform;
 
 	void Start() {
 		thisTransform = transform;
-		tail = thisTransform.GetChild(1).GetComponent<TrailRenderer>();
 		Destroy(thisTransform.GetChild(0).gameObject, 5f);
 		GetComponent<Rigidbody2D>().AddRelativeForce(velocity);
 	}

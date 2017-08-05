@@ -11,11 +11,9 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	public float thrust_speed;
 	/*
-	VECTOR2 = Thurst Velocity
-	x - current speed
-	y - max speed
+	VECTOR2 = Ship Velocity
 	*/
-	public Vector2 thrust_velocity;
+	public Vector2 ship_velocity;
 
 	/*
 	The base speed the ship will be using while rotating
@@ -39,12 +37,12 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		CanMove = true;
 		/*
 		speed = 10f;
 		max_horizontalVelocity = 10f;
 		max_verticalVelocity = 10f;
 		 */
-		 thrust_velocity = Vector2.zero;
 		 thisTransform = transform;
 	}
 	
@@ -72,15 +70,24 @@ public class PlayerControl : MonoBehaviour {
 		// Debug.Log(rotation_velocity.x);
 	}
 
+	void MoveShip() {
+		
+	}
+
 	//	Receive player inputs
 	void ReadyValues() {
-		float v = Input.GetAxis("Jump");
-		thrust_velocity.x = v * thrust_speed;
+		float v = Input.GetAxisRaw("Jump");
+		if (v > 0) {
+			float speed = v * thrust_speed * Time.deltaTime;
+			
+			ship_velocity = (Vector2)(thisTransform.forward * speed) + rb2d.velocity;
+		}
 
 	}
 
 	void ApplyValues() {
-		rb2d.AddForce(thisTransform.forward * thrust_velocity.x);
+		// rb2d.AddForce(thisTransform.forward * thrust_speedometer.x);
+		rb2d.velocity = ship_velocity;
 		// rb2d.rotation = thisTransform.eulerAngles.x;
 	}
 
@@ -91,7 +98,7 @@ public class PlayerControl : MonoBehaviour {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
 				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
-				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 10000f;
+				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 2500f;
 				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}
 		}
