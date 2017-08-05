@@ -49,6 +49,18 @@ public class PlayerControl : MonoBehaviour {
 
 		ReadyValues();
 		ApplyValues();
+		 if (Input.GetAxis("Jump") > 0){
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+			 }
+		 }else{
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+			 }
+		 }
+		 
 	}
 
 	/*
@@ -68,6 +80,7 @@ public class PlayerControl : MonoBehaviour {
 		float v = Input.GetAxis("Jump");
 
 		thrust_velocity.x = v * thrust_speed;
+
 	}
 
 	void ApplyValues() {
