@@ -9,8 +9,6 @@ public class FreeForAllManager : NetworkBehaviour {
 
 	[ServerCallback]
 	void Start() {
-
+		
 	}
-
-
 }

@@ -12,18 +12,22 @@ public class PlayerManager : NetworkBehaviour {
     [SerializeField] ToggleEvent m_toggleShared;
     [SerializeField] ToggleEvent m_toggleRemote;
 
-    bool m_isLocalPlayer = false;
+    Camera m_mainCamera;
 
-    public bool GetLocalPlayer { get { return m_isLocalPlayer; }}
-
-
+    public bool GetLocalPlayer { get { return isLocalPlayer; }}
 	
     void Start() {
         if(isLocalPlayer) {
-            m_isLocalPlayer = true;
             Camera.main.GetComponent<CameraFollow>().SetPlayer = this.gameObject;
-        } else {
-            Camera.main.gameObject.SetActive(false);
+            ActivatePlayer();
+        } else if(!isLocalPlayer) {
+            m_toggleRemote.Invoke(false);
+        }
+    }
+
+    void ActivatePlayer() {
+        if(isLocalPlayer) {
+
         }
     }
 }
