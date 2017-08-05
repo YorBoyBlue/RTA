@@ -44,14 +44,24 @@ public class Asteroid : MonoBehaviour {
 				
 				m_Manager.Spawn(1, other.transform.position);
 				m_Manager.Spawn(1, other.transform.position);
+				int newMedAmount = GetComponentInParent<AsteroidManager>().getMedAsteroids() + 2;
+				int newLargeAmount = GetComponentInParent<AsteroidManager>().getLargeAsteroids() - 1;
+				GetComponentInParent<AsteroidManager>().setMedAsteroids(newMedAmount);
+				GetComponentInParent<AsteroidManager>().setLargeAsteroids(newLargeAmount);
 				Destroy(this.gameObject);
 			}
 			if(this.tag == "Medium"){
 				m_Manager.Spawn(0, other.transform.position);
 				m_Manager.Spawn(0, other.transform.position);
+				int newSmallAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() + 2;
+				int newMedAmount = GetComponentInParent<AsteroidManager>().getMedAsteroids() - 1;
+				GetComponentInParent<AsteroidManager>().setSmallAsteroids(newSmallAmount);
+				GetComponentInParent<AsteroidManager>().setMedAsteroids(newMedAmount);
 				Destroy(this.gameObject);
 			}
 			if(this.tag == "Small"){
+				int newSmallAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
+				GetComponentInParent<AsteroidManager>().setSmallAsteroids(newSmallAmount);
 				Destroy(this.gameObject);
 			}
 		}
@@ -72,16 +82,16 @@ public class Asteroid : MonoBehaviour {
 	/// </summary>
 	void OnDestroy()
 	{
-		if(tag == "Small"){
+		if(this.tag == "Small"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
 			
 			GetComponentInParent<AsteroidManager>().setSmallAsteroids(newAmount);
 		}
-		if(tag == "Medium"){
+		if(this.tag == "Medium"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getMedAsteroids() - 1;
 			GetComponentInParent<AsteroidManager>().setMedAsteroids(newAmount);
 		}
-		if(tag == "Large"){
+		if(this.tag == "Large"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getLargeAsteroids() - 1;
 			GetComponentInParent<AsteroidManager>().setLargeAsteroids(newAmount);
 		}

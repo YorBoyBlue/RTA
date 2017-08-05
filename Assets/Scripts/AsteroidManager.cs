@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class AsteroidManager : MonoBehaviour {
 
+	public static AsteroidManager singleton = null;
+
 
 	private int smallAsteroids = 0;
 	private int medAsteroids = 0;
 	private int largeAsteroids = 0;
+	private int totalAsteroids = 0;
 	
 	public Vector3[] AsteroidSpawn;
 
@@ -16,10 +19,9 @@ public class AsteroidManager : MonoBehaviour {
 	public GameObject[] AsteroidPrefabs;
 	// Use this for initialization
 	void Start () {
-		smallAsteroids = 0;
-		medAsteroids = 0;
-		largeAsteroids = 0;
-		for (int i = 0; i < 15; i++){
+
+		
+		for (int i = 0; i < 10; i++){
 			
 			int randomSize = Random.Range(0,4);
 			Spawn(randomSize, AsteroidSpawn[Random.Range(0,4)]);
@@ -34,17 +36,34 @@ public class AsteroidManager : MonoBehaviour {
 			}
 			
 		}
-		Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids);
+		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		MaintainAstroids();
+	/// <summary>
+	/// Awake is called when the script instance is being loaded.
+	/// </summary>
+	void Awake()
+	{
+		if(singleton == null){
+			singleton = this;
+		}else if(singleton != this){
+			Destroy(this.gameObject);
+		}
 	}
 
+	// Update is called once per frame
+	void Update () {
+		if(totalAsteroids < 10)
+			MaintainAstroids();
+		totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
+		Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
+	}
+
+
+
 	private void MaintainAstroids(){
-		int totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
-		if(totalAsteroids < 15){
+		
+		if(totalAsteroids < 10){
 			int randomSize = Random.Range(0,4);
 			Spawn(randomSize, AsteroidSpawn[Random.Range(0,4)]);
 			if(randomSize == 0){
@@ -70,7 +89,7 @@ public class AsteroidManager : MonoBehaviour {
 	}
 
 	public void setSmallAsteroids(int newAmount){
-		smallAsteroids = newAmount;
+		smallAsteroids -= newAmount;
 	}
 
 	public void setMedAsteroids(int newAmount){
@@ -79,7 +98,7 @@ public class AsteroidManager : MonoBehaviour {
 
 	public void setLargeAsteroids(int newAmount){
 		largeAsteroids = newAmount;
-	}
+	}	
 
 	public void Spawn(int size, Vector3 location){
 		GameObject asteroid = null;
