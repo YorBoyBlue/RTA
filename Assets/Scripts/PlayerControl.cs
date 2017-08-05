@@ -77,6 +77,7 @@ public class PlayerControl : MonoBehaviour {
 	void ReadyValues() {
 		float v = Input.GetAxis("Jump");
 		thrust_velocity.x = v * thrust_speed;
+
 	}
 
 	void ApplyValues() {
