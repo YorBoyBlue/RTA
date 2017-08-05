@@ -12,6 +12,8 @@ public class PlayerManager : NetworkBehaviour {
     [SerializeField] ToggleEvent m_toggleShared;
     [SerializeField] ToggleEvent m_toggleRemote;
 
+    [SerializeField] PlayerControl m_playerControl;
+
     Camera m_mainCamera;
 
     public bool GetLocalPlayer { get { return isLocalPlayer; }}
@@ -22,6 +24,13 @@ public class PlayerManager : NetworkBehaviour {
             ActivatePlayer();
         } else if(!isLocalPlayer) {
             m_toggleRemote.Invoke(false);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcSetCanMove(bool value) {
+        if(isLocalPlayer) {
+            m_playerControl.CanMove = value;
         }
     }
 

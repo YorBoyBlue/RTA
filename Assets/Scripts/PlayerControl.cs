@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-	public bool CanMove { get; private set; }
+	public bool CanMove { get; set; }
 
 	/*
 	The base speed the ship will be using while thrusting
@@ -39,7 +39,6 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CanMove = true;
 		/*
 		speed = 10f;
 		max_horizontalVelocity = 10f;

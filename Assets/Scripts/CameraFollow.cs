@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate() {
+	void LateUpdate() {
 		if(m_follow) {
 			Vector3 target = new Vector3(m_player.transform.position.x, m_player.transform.position.y, -70);
 			Vector3 currentPos = new Vector3(transform.position.x, transform.position.y, -70);
