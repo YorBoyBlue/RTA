@@ -98,7 +98,7 @@ public class PlayerControl : MonoBehaviour {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
 				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
-				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 2500f;
+				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 5000f;
 				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}
 		}
