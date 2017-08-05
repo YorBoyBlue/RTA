@@ -2,24 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AsteroidSize
+{
+	SMALL,
+	MEDIUM,
+	LARGE
+}
+
+
 public class Asteroid : MonoBehaviour {	
+	
 
 	public const float size_min = 0.5f;
 	public const float size_decrement = 0.5f;
-	public GameObject[] m_Asteroid;
+	private AsteroidManager m_Manager;
+
 	private Vector3 velocity;
 
 
-	public float size;	
+	public float size = 1;	
 
 	// Use this for initialization
 	void Start () {
+		m_Manager = GetComponentInParent<AsteroidManager>();
 		//transform.localScale = Vector3.one * size;
 		velocity = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log("Collision");
+		if(other.tag == "Bullet"){
+			Destroy(other.gameObject);
+		}
 		size -= size_decrement;
 		if (size < size_min) {
 			Destroy(this.gameObject);
@@ -27,6 +40,7 @@ public class Asteroid : MonoBehaviour {
 		} else {
 			Split();
 		}
+
 	}
 
 	void Update() {
@@ -43,6 +57,8 @@ public class Asteroid : MonoBehaviour {
 	/// </summary>
 	void OnDestroy()
 	{
-		
+		if(GetComponentInParent<AsteroidManager>()){
+			GetComponentInParent<AsteroidManager>().Spawn(AsteroidSize.LARGE);
+		}
 	}
 }

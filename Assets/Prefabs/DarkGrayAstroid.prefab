@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60751550885952722}
   - component: {fileID: 114850847010292732}
   m_Layer: 0
-  m_Name: GrayAstroid
+  m_Name: DarkGrayAstroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -162,8 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf607b70a320a1e40a659444781ad074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Asteroid: []
-  size: 0
+  size: 2
 --- !u!212 &212057093448132970
 SpriteRenderer:
   m_ObjectHideFlags: 1
