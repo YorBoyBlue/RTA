@@ -22,6 +22,8 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	public float currentRotation;
 
+	public Transform bulletSpawn;
+
 	/*
 	Reference to the attached rigidbody2D
 	 */
@@ -58,6 +60,18 @@ public class PlayerControl : MonoBehaviour {
 			ReadyValues();
 			ApplyValues();
 		}
+
+		 if (Input.GetAxis("Jump") > 0){
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+			 }
+		 }else{
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+			 }
+		 }
 	}
 
 	/*
@@ -91,7 +105,7 @@ public class PlayerControl : MonoBehaviour {
 		} else {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
-				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
+				GameObject newBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
 				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 1000f;
 				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}
