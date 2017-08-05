@@ -213,8 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust_speed: 5
   thrust_velocity: {x: 0, y: 10}
-  rotation_speed: 0
-  rotation_velocity: {x: 0, y: 0}
+  currentRotation: 0
   rb2d: {fileID: 294023157}
   thisTransform: {fileID: 0}
   bullet: {fileID: 1574045469615580, guid: 6c4776d008300654998fcae9e8b287ed, type: 2}
@@ -376,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  direction: {x: 0, y: 0}
 --- !u!114 &473643670
 MonoBehaviour:
   m_ObjectHideFlags: 0
