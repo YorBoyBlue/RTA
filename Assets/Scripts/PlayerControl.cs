@@ -32,11 +32,6 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	 public Transform thisTransform;
 
-	 [SerializeField]
-	 GameObject bullet;
-
-	public Vector2 shootCooldown;
-
 	// Use this for initialization
 	void Start () {
 		/*
@@ -52,7 +47,6 @@ public class PlayerControl : MonoBehaviour {
 	void Update () {
 		if (CanMove) {
 			RotateShip();
-			Shoot();
 
 			ReadyValues();
 			ApplyValues();
@@ -82,18 +76,5 @@ public class PlayerControl : MonoBehaviour {
 	void ApplyValues() {
 		rb2d.AddForce(thisTransform.forward * thrust_velocity.x);
 		// rb2d.rotation = thisTransform.eulerAngles.x;
-	}
-
-	void Shoot() {
-		if (shootCooldown.x > 0) {
-			shootCooldown.x -= Time.deltaTime;
-		} else {
-			if (Input.GetAxis("Fire1") > 0) {
-				shootCooldown.x = shootCooldown.y;
-				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
-				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 10000f;
-				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
-			}
-		}
 	}
 }

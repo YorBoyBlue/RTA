@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour {
 			m_follow = true;			
 		} else if(Mathf.Abs(transform.position.x - m_player.transform.position.x) >  (m_deadSpace + 0.5f) || Mathf.Abs(transform.position.y - m_player.transform.position.y) >  (m_deadSpace + 0.5f)) {
 			//transform.position = new Vector3(m_player.transform.position.x, m_player.transform.position.y, -70);
-			m_follow = true;			
+			m_follow = true;
 		} else {
 			m_follow = false;
 		}
