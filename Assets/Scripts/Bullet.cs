@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	public float speed;
+	public Vector2 velocity;
 
 	void Start() {
 		Destroy(this.gameObject, 5f);
-		GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0, speed));
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		
+		GetComponent<Rigidbody2D>().AddRelativeForce(velocity);
 	}
 }

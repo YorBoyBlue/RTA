@@ -286,5 +286,5 @@ MonoBehaviour:
   thrust_velocity: {x: 0, y: 10}
   rb2d: {fileID: 50351021171204638}
   thisTransform: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 1574045469615580, guid: 6c4776d008300654998fcae9e8b287ed, type: 2}
   shootCooldown: {x: 0, y: 0}
