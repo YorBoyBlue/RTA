@@ -65,7 +65,7 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	void RotateShip() {
 		Vector3 mousePos = Input.mousePosition;
-		mousePos.z = 10.0f;
+		mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
 		Vector3 newMousePos = Camera.main.ScreenToWorldPoint(mousePos);
 		// Debug.Log(newMousePos);
 		thisTransform.LookAt(newMousePos, Vector3.back);
@@ -81,7 +81,7 @@ public class PlayerControl : MonoBehaviour {
 
 	void ApplyValues() {
 		rb2d.AddForce(thisTransform.forward * thrust_velocity.x);
-		rb2d.rotation = thisTransform.eulerAngles.x;
+		// rb2d.rotation = thisTransform.eulerAngles.x;
 	}
 
 	void Shoot() {
@@ -91,7 +91,7 @@ public class PlayerControl : MonoBehaviour {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
 				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
-				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 1000f;
+				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 10000f;
 				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}
 		}
