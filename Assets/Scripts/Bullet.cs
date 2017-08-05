@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : NetworkBehaviour {
 
 	public Vector2 velocity;
-
+	public PlayerHealth m_bulletOwner;
 	Transform thisTransform;
 
 	void Start() {
@@ -23,5 +24,13 @@ public class Bullet : MonoBehaviour {
 	void DestroyBullet() {
 		GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		Destroy(gameObject, 1f);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if(other.gameObject.CompareTag("Player")) {
+			if(other.gameObject.GetComponent<PlayerHealth>().TakeDamage()) {
+				m_bulletOwner.Kills++;
+			}
+		}
 	}
 }

@@ -34,9 +34,28 @@ public class PlayerManager : NetworkBehaviour {
         }
     }
 
+    public void GameOver() {
+        DeactivatePlayer();
+    }
+
     void ActivatePlayer() {
         if(isLocalPlayer) {
-
+            m_toggleLocal.Invoke(true);
         }
+    }
+
+    void DeactivatePlayer() {        
+        if(isLocalPlayer) {
+            m_toggleLocal.Invoke(false);
+        }
+    }
+
+    void Respawn() {
+        if(isLocalPlayer) {
+            Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
+            this.transform.position = spawnPoint.position;
+            this.transform.rotation = spawnPoint.rotation;
+        }
+        ActivatePlayer();
     }
 }

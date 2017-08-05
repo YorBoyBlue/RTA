@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class FreeForAllManager : NetworkBehaviour {
 
-	float m_warmUpTime = 5f;
+	float m_warmUpTime = 3f;
 
 	bool m_hasStartedGame = false;
 	[SerializeField] List<GameObject> m_players;
