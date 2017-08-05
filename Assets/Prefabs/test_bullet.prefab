@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4197549669583080}
   - component: {fileID: 114035403306813706}
   - component: {fileID: 50840166262998612}
-  - component: {fileID: 61623005029485272}
+  - component: {fileID: 61280436639671026}
   m_Layer: 0
   m_Name: test_bullet
   m_TagString: Untagged
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61623005029485272
+--- !u!61 &61280436639671026
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
