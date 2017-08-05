@@ -11,7 +11,7 @@ public class AsteroidManager : MonoBehaviour {
 	public GameObject[] AsteroidPrefabs;
 	// Use this for initialization
 	void Start () {
-		Spawn("Large");
+		Spawn(2, this.transform.position);
 	}
 	
 	// Update is called once per frame
@@ -20,27 +20,29 @@ public class AsteroidManager : MonoBehaviour {
 	}
 
 
-	public void Spawn(AsteroidSize size){
-		GameObject asteroid = Instantiate(AsteroidPrefabs[Random.Range(0,2)], this.transform.position, Quaternion.identity);
-		asteroid.transform.SetParent(this.transform);
-		
+	public void Spawn(int size, Vector3 location){
+		GameObject asteroid = null;
+
 		switch(size){
 			
-			case "Small":
+			
+			case 0:
 				
-				asteroid.transform.localScale = Vector3.one * 0.75f;
-				
+				asteroid = Instantiate(AsteroidPrefabs[0], location, Quaternion.identity);
+				asteroid.transform.SetParent(this.transform);
 				break;
 
-			case "Medium":
+			case 1:
 				
-				asteroid.transform.localScale = Vector3.one * 0.5f;
+				asteroid = Instantiate(AsteroidPrefabs[1], location, Quaternion.identity);
+				asteroid.transform.SetParent(this.transform);
 				
 				break;
 			
-			case "Large":
+			case 2:
 				
-				asteroid.transform.localScale = Vector3.one * 1f;
+				asteroid = Instantiate(AsteroidPrefabs[2], location, Quaternion.identity);
+				asteroid.transform.SetParent(this.transform);
 				
 				break;
 

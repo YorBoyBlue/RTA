@@ -22,8 +22,6 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	public float currentRotation;
 
-	public Transform bulletSpawn;
-
 	/*
 	Reference to the attached rigidbody2D
 	 */
@@ -105,7 +103,7 @@ public class PlayerControl : MonoBehaviour {
 		} else {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
-				GameObject newBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
 				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 1000f;
 				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}

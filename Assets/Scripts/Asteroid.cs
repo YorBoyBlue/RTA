@@ -32,13 +32,28 @@ public class Asteroid : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.tag == "Bullet"){
 			Destroy(other.gameObject);
-		}
-		size -= size_decrement;
-		if (size < size_min) {
-			Destroy(this.gameObject);
+	
+		// size -= size_decrement;
+		// if (size < size_min) {
+		// 	Destroy(this.gameObject);
 			
-		} else {
-			Split();
+		// } else {
+		// 	Split();
+		// }
+			if(this.tag == "Large"){
+				
+				m_Manager.Spawn(1, other.transform.position);
+				m_Manager.Spawn(1, other.transform.position);
+				Destroy(this.gameObject);
+			}
+			if(this.tag == "Medium"){
+				m_Manager.Spawn(0, other.transform.position);
+				m_Manager.Spawn(0, other.transform.position);
+				Destroy(this.gameObject);
+			}
+			if(this.tag == "Small"){
+				Destroy(this.gameObject);
+			}
 		}
 
 	}
@@ -57,8 +72,8 @@ public class Asteroid : MonoBehaviour {
 	/// </summary>
 	void OnDestroy()
 	{
-		if(GetComponentInParent<AsteroidManager>()){
-			GetComponentInParent<AsteroidManager>().Spawn(AsteroidSize.LARGE);
-		}
+		// if(GetComponentInParent<AsteroidManager>()){
+		// 	GetComponentInParent<AsteroidManager>().Spawn(1);
+		// }
 	}
 }
