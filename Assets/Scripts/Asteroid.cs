@@ -72,6 +72,19 @@ public class Asteroid : MonoBehaviour {
 	/// </summary>
 	void OnDestroy()
 	{
+		if(tag == "Small"){
+			int newAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
+			
+			GetComponentInParent<AsteroidManager>().setSmallAsteroids(newAmount);
+		}
+		if(tag == "Medium"){
+			int newAmount = GetComponentInParent<AsteroidManager>().getMedAsteroids() - 1;
+			GetComponentInParent<AsteroidManager>().setMedAsteroids(newAmount);
+		}
+		if(tag == "Large"){
+			int newAmount = GetComponentInParent<AsteroidManager>().getLargeAsteroids() - 1;
+			GetComponentInParent<AsteroidManager>().setLargeAsteroids(newAmount);
+		}
 		// if(GetComponentInParent<AsteroidManager>()){
 		// 	GetComponentInParent<AsteroidManager>().Spawn(1);
 		// }

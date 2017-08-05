@@ -7015,6 +7015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73a649e37ccc47db98fd072018ce769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AsteroidSpawn:
+  - {x: -50, y: -50, z: 0}
+  - {x: -50, y: 50, z: 0}
+  - {x: 50, y: -50, z: 0}
+  - {x: 50, y: 50, z: 0}
   AsteroidPrefabs:
   - {fileID: 1456421244774270, guid: 53f7b0ae5b93c4cf9a6c3af12cc51c3b, type: 2}
   - {fileID: 1289706784069736, guid: 905dfead03365413fb354654bed5bb91, type: 2}
