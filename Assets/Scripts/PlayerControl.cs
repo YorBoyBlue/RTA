@@ -31,7 +31,6 @@ public class PlayerControl : MonoBehaviour {
 	We need to cache the transform of this object
 	 */
 	 public Transform thisTransform;
-	 public Transform shipTransform;
 
 	 [SerializeField]
 	 GameObject bullet;
@@ -69,7 +68,7 @@ public class PlayerControl : MonoBehaviour {
 		mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
 		Vector3 newMousePos = Camera.main.ScreenToWorldPoint(mousePos);
 		// Debug.Log(newMousePos);
-		shipTransform.LookAt(newMousePos, Vector3.back);
+		thisTransform.LookAt(newMousePos, Vector3.back);
 		// rotation_velocity.x = Vector2.Angle(thisTransform.position, newMousePos);
 		// Debug.Log(rotation_velocity.x);
 	}
@@ -82,7 +81,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void ApplyValues() {
-		rb2d.AddForce(shipTransform.forward * thrust_velocity.x);
+		rb2d.AddForce(thisTransform.forward * thrust_velocity.x);
 		// rb2d.rotation = thisTransform.eulerAngles.x;
 	}
 
@@ -93,8 +92,8 @@ public class PlayerControl : MonoBehaviour {
 			if (Input.GetAxis("Fire1") > 0) {
 				shootCooldown.x = shootCooldown.y;
 				GameObject newBullet = Instantiate(bullet, thisTransform.position, Quaternion.identity);
-				newBullet.GetComponent<Bullet>().velocity =  shipTransform.forward * 10000f;
-				newBullet.transform.GetChild(0).rotation = shipTransform.rotation;
+				newBullet.GetComponent<Bullet>().velocity =  thisTransform.forward * 10000f;
+				newBullet.transform.GetChild(0).rotation = thisTransform.rotation;
 			}
 		}
 	}
