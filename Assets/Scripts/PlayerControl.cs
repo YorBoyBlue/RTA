@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour {
 	 GameObject bullet;
 
 	public Vector2 shootCooldown;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -70,6 +71,17 @@ public class PlayerControl : MonoBehaviour {
 				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
 			 }
 		 }
+
+		 if(transform.position.x > 30 ){
+			transform.position = new Vector3(-30, transform.position.y, 0);
+		}else if(transform.position.x < -30){
+			transform.position = new Vector3(30, transform.position.y, 0);
+		}
+		if(transform.position.y > 30 ){
+			transform.position = new Vector3(transform.position.x, -30, 0);
+		}else if(transform.position.y < -30){
+			transform.position = new Vector3(transform.position.x, -30, 0);
+		}
 	}
 
 	/*

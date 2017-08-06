@@ -7,7 +7,8 @@ public class AsteroidManager : MonoBehaviour {
 
 	public static AsteroidManager singleton = null;
 
-
+	public float bounday_X;
+	public float boundary_Y;
 	private int smallAsteroids = 0;
 	private int medAsteroids = 0;
 	private int largeAsteroids = 0;
@@ -102,8 +103,13 @@ public class AsteroidManager : MonoBehaviour {
 		largeAsteroids = newAmount;
 	}
 
-	public int getTotalAstroids(){
+	public int GetTotalAstroids(){
 		return totalAsteroids;
+	}
+
+	public Vector2 GetBoundary() {
+		Vector2 boundary = new Vector2(bounday_X, boundary_Y);
+		return boundary;
 	}	
 
 	public void Spawn(int size, Vector3 location){

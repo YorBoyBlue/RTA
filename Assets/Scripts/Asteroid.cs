@@ -12,14 +12,13 @@ public enum AsteroidSize
 
 public class Asteroid : MonoBehaviour {	
 	
-
 	public const float size_min = 0.5f;
 	public const float size_decrement = 0.5f;
 	private AsteroidManager m_Manager;
 
 	private Vector3 velocity;
 
-
+	private bool ApplicationClosing = false;
 	public float size = 1;	
 
 	// Use this for initialization
@@ -45,7 +44,7 @@ public class Asteroid : MonoBehaviour {
 				
 				// int newLargeAmount = m_AsteroidManager.getLargeAsteroids() - 1;
 				// m_AsteroidManager.setLargeAsteroids(newLargeAmount);
-				if(GetComponentInParent<AsteroidManager>().getTotalAsteroids() < 10){
+				if(GetComponentInParent<AsteroidManager>().GetTotalAstroids() < 10){
 					int newMedAmount = m_AsteroidManager.getMedAsteroids() + 2;
 					m_AsteroidManager.setMedAsteroids(newMedAmount);
 					m_Manager.Spawn(1, other.transform.position);
@@ -59,7 +58,7 @@ public class Asteroid : MonoBehaviour {
 				
 				// int newMedAmount = m_AsteroidManager.getMedAsteroids() - 1;
 				//m_AsteroidManager.setMedAsteroids(newMedAmount);
-				if(GetComponentInParent<AsteroidManager>().getTotalAsteroids() < 10){
+				if(GetComponentInParent<AsteroidManager>().GetTotalAstroids() < 10){
 					int newSmallAmount = m_AsteroidManager.getSmallAsteroids() + 2;
 					m_AsteroidManager.setSmallAsteroids(newSmallAmount);
 					m_Manager.Spawn(0, other.transform.position);
@@ -79,6 +78,25 @@ public class Asteroid : MonoBehaviour {
 
 	void Update() {
 		GetComponent<Rigidbody2D>().AddRelativeForce(velocity);
+		if(transform.position.x > 30 ){
+			//GetComponent<Rigidbody2D>().isKinematic = true;
+			transform.position = new Vector2(-30, transform.position.y);
+			Debug.Log("Boundary: " + m_Manager.GetBoundary());
+		}
+		if(transform.position.x < -30){
+			//GetComponent<Rigidbody2D>().isKinematic = true;
+			transform.position = new Vector2(30, transform.position.y);
+			Debug.Log("Boundary: " + m_Manager.GetBoundary());
+		}
+		if(transform.position.y > 30 ){
+			GetComponent<Rigidbody2D>().isKinematic = true;
+			transform.position = new Vector2(transform.position.x, -30);
+			Debug.Log("Boundary: " + m_Manager.GetBoundary());
+		}
+		if(transform.position.y < -30){
+			//GetComponent<Rigidbody2D>().isKinematic = true;
+			transform.position = new Vector2(transform.position.x, 30);
+		}
 		transform.localScale = Vector3.one * size;
 	}
 
@@ -91,20 +109,28 @@ public class Asteroid : MonoBehaviour {
 	/// </summary>
 	void OnDestroy()
 	{
-		if(this.tag == "Small"){
+		if(!ApplicationClosing && this.tag == "Small"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
 			GetComponentInParent<AsteroidManager>().setSmallAsteroids(newAmount);
 		}
-		if(this.tag == "Medium"){
+		if(!ApplicationClosing && this.tag == "Medium"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getMedAsteroids() - 1;
 			GetComponentInParent<AsteroidManager>().setMedAsteroids(newAmount);
 		}
-		if(this.tag == "Large"){
+		if(!ApplicationClosing && this.tag == "Large"){
 			int newAmount = GetComponentInParent<AsteroidManager>().getLargeAsteroids() - 1;
 			GetComponentInParent<AsteroidManager>().setLargeAsteroids(newAmount);
 		}
 		// if(GetComponentInParent<AsteroidManager>()){
 		// 	GetComponentInParent<AsteroidManager>().Spawn(1);
 		// }
+	}
+
+	/// <summary>
+	/// Callback sent to all game objects before the application is quit.
+	/// </summary>
+	void OnApplicationQuit()
+	{
+		ApplicationClosing = true;
 	}
 }
