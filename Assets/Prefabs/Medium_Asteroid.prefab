@@ -25,8 +25,13 @@ GameObject:
   - component: {fileID: 60755355828035334}
   - component: {fileID: 114974112706872194}
   - component: {fileID: 114852809347455508}
+<<<<<<< HEAD
   - component: {fileID: 199112182036007254}
   - component: {fileID: 198800220403811476}
+=======
+  - component: {fileID: 199686287216004972}
+  - component: {fileID: 198913842823069132}
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
   m_Layer: 0
   m_Name: Medium_Asteroid
   m_TagString: Medium
@@ -196,7 +201,11 @@ MonoBehaviour:
     i15: 145
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+<<<<<<< HEAD
 --- !u!198 &198800220403811476
+=======
+--- !u!198 &198913842823069132
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3322,7 +3331,11 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!199 &199112182036007254
+=======
+--- !u!199 &199686287216004972
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1

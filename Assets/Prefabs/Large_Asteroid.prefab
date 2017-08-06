@@ -25,8 +25,13 @@ GameObject:
   - component: {fileID: 60166194835245996}
   - component: {fileID: 114465912070578892}
   - component: {fileID: 114349334970090280}
+<<<<<<< HEAD
   - component: {fileID: 199866450109980172}
   - component: {fileID: 198937977212248042}
+=======
+  - component: {fileID: 199236483990987036}
+  - component: {fileID: 198351844828066716}
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
   m_Layer: 0
   m_Name: Large_Asteroid
   m_TagString: Large
@@ -226,7 +231,11 @@ MonoBehaviour:
   max_Y: 0
   m_rb2d: {fileID: 50387472386311992}
   size: 1
+<<<<<<< HEAD
 --- !u!198 &198937977212248042
+=======
+--- !u!198 &198351844828066716
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3352,7 +3361,11 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!199 &199866450109980172
+=======
+--- !u!199 &199236483990987036
+>>>>>>> 010f65114e2c6a5ebe4debe63edfa9db068ffcf1
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1
