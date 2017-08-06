@@ -11,7 +11,8 @@ public enum AudioClip_Enum {
 	EXPLOSION_Fiery,
 	EXPLOSION_Test,
 	ATMOSPHERE_1,
-	ATMOSPHERE_2
+	ATMOSPHERE_2,
+	TESLA_LOOP
 }
 
 public class AudioManager : MonoBehaviour {
