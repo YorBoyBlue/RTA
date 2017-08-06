@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 50167757176100774}
   - component: {fileID: 114176272057412474}
   - component: {fileID: 114069756297529944}
+  - component: {fileID: 114164105668775910}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,7 +205,7 @@ GameObject:
   - component: {fileID: 114726756603071564}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Avatar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,6 +343,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114164105668775910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592229056234888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90cf485b7dd48541b27bc49c1d9ba2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114176272057412474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57f1b974b05b72439bf821a97d12aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades: {fileID: 114164105668775910}
   max_speed: 25
   thrust_speed: 10
   ship_velocity: {x: 0, y: 0}

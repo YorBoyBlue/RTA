@@ -6,6 +6,8 @@ public class PlayerControl : MonoBehaviour {
 
 	public bool CanMove { get; set; }
 
+	public PlayerUpgrades upgrades;
+
 	public float max_speed;
 	/*
 	The base speed the ship will be using while thrusting

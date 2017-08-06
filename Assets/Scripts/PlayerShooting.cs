@@ -24,18 +24,19 @@ public class PlayerShooting : NetworkBehaviour {
 		} else {
 			if(isLocalPlayer) {
 				if (Input.GetAxis("Fire1") > 0) {
-					CmdShoot();
+                    float speedFactor = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.Weapon) ? 3f : 1f);
+                    shootCooldown.x = shootCooldown.y / speedFactor;
+					CmdShoot(1000f * speedFactor);
 				}
 			}
 		}
     }
 
 	[Command]
-	void CmdShoot() {
-		shootCooldown.x = shootCooldown.y;
+	void CmdShoot(float speed) {
 		GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
 		newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-		newBullet.GetComponent<Bullet>().velocity =  transform.forward * 1000f;
+		newBullet.GetComponent<Bullet>().velocity =  transform.forward * speed;
 		newBullet.transform.GetChild(0).rotation = transform.rotation;
 		NetworkServer.Spawn(newBullet);
 	}
