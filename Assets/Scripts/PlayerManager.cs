@@ -13,12 +13,15 @@ public class PlayerManager : NetworkBehaviour {
     [SerializeField] ToggleEvent m_toggleRemote;
 
     [SerializeField] PlayerControl m_playerControl;
+    [SerializeField] PlayerAudioManager m_playerAudioManager;
 
     float m_respawnDelay = 5f;
 
     Camera m_mainCamera;
 
     public bool GetLocalPlayer { get { return isLocalPlayer; }}
+
+    public PlayerAudioManager AudioManager {get { return m_playerAudioManager; }}
 	
     void Start() {
         if(isLocalPlayer) {
