@@ -57,16 +57,21 @@ public class Asteroid : NetworkBehaviour {
 				AsteroidManager.singleton.setMedAsteroids(newMedAmount);
 				AsteroidManager.singleton.Spawn(1, other.transform.position);
 				AsteroidManager.singleton.Spawn(1, other.transform.position);
-				Destroy(this.gameObject);				
+				GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
+				GetComponent<ParticleSystem>().Play();
+				Destroy(this.gameObject, 0.4f);				
 			}
 			if(this.tag == "Medium"){				
 				// int newMedAmount = m_AsteroidManager.getMedAsteroids() - 1;
 				//m_AsteroidManager.setMedAsteroids(newMedAmount);
+				GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
+				GetComponent<ParticleSystem>().Play();
+				
 				int newSmallAmount = AsteroidManager.singleton.getSmallAsteroids() + 2;
 				AsteroidManager.singleton.setSmallAsteroids(newSmallAmount);
 				AsteroidManager.singleton.Spawn(0, other.transform.position);
 				AsteroidManager.singleton.Spawn(0, other.transform.position);				
-				Destroy(this.gameObject);
+				Destroy(this.gameObject, 0.4f);
 			}
 			if(this.tag == "Small"){
 				// int newSmallAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
