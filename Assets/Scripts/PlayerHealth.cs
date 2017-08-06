@@ -13,6 +13,7 @@ public class PlayerHealth : NetworkBehaviour {
     [SyncVar (hook = "OnKillsChanged")] int m_kills;
 
 	public int Kills { get { return m_kills;}set { m_kills = value; }}
+	public int Deaths { get { return m_deaths;}set { m_deaths = value; }}
 	public HUDManager HUD { get { return m_hud; } }
 
 	[ServerCallback]
@@ -76,5 +77,10 @@ public class PlayerHealth : NetworkBehaviour {
         m_kills = value;
         if (isLocalPlayer)
             m_hud.SetKills(value);
+    }
+
+    [ClientRpc]
+    public void RpcSetTimer(int currentSeconds) {
+        m_hud.SetTimer(currentSeconds);
     }
 }
