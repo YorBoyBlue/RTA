@@ -12,6 +12,8 @@ public enum AsteroidSize
 
 public class Asteroid : MonoBehaviour {	
 	
+	private int max_X = 30;
+	private int max_Y = 30;
 	public const float size_min = 0.5f;
 	public const float size_decrement = 0.5f;
 	private AsteroidManager m_Manager;
@@ -70,7 +72,9 @@ public class Asteroid : MonoBehaviour {
 			if(this.tag == "Small"){
 				// int newSmallAmount = GetComponentInParent<AsteroidManager>().getSmallAsteroids() - 1;
 				// GetComponentInParent<AsteroidManager>().setSmallAsteroids(newSmallAmount);
-				Destroy(this.gameObject);
+				GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
+				GetComponent<ParticleSystem>().Play();
+				Destroy(this.gameObject, 0.4f);
 			}
 		}
 
@@ -78,24 +82,24 @@ public class Asteroid : MonoBehaviour {
 
 	void Update() {
 		GetComponent<Rigidbody2D>().AddRelativeForce(velocity);
-		if(transform.position.x > 30 ){
+		if(transform.position.x > max_X ){
 			//GetComponent<Rigidbody2D>().isKinematic = true;
-			transform.position = new Vector2(-30, transform.position.y);
-			Debug.Log("Boundary: " + m_Manager.GetBoundary());
+			transform.position = new Vector2(-max_X, transform.position.y);
+		
 		}
-		if(transform.position.x < -30){
+		if(transform.position.x < -max_X){
 			//GetComponent<Rigidbody2D>().isKinematic = true;
-			transform.position = new Vector2(30, transform.position.y);
-			Debug.Log("Boundary: " + m_Manager.GetBoundary());
+			transform.position = new Vector2(max_X, transform.position.y);
+			
 		}
-		if(transform.position.y > 30 ){
-			GetComponent<Rigidbody2D>().isKinematic = true;
-			transform.position = new Vector2(transform.position.x, -30);
-			Debug.Log("Boundary: " + m_Manager.GetBoundary());
-		}
-		if(transform.position.y < -30){
+		if(transform.position.y > max_Y ){
 			//GetComponent<Rigidbody2D>().isKinematic = true;
-			transform.position = new Vector2(transform.position.x, 30);
+			transform.position = new Vector2(transform.position.x, -max_Y);
+		
+		}
+		if(transform.position.y < -max_Y){
+			//GetComponent<Rigidbody2D>().isKinematic = true;
+			transform.position = new Vector2(transform.position.x, max_Y);
 		}
 		transform.localScale = Vector3.one * size;
 	}

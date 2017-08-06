@@ -24,7 +24,7 @@ public class AsteroidManager : MonoBehaviour {
 		
 		for (int i = 0; i < 10; i++){
 			
-			int randomSize = Random.Range(0,4);
+			int randomSize = Random.Range(0,3);
 			Spawn(randomSize, AsteroidSpawn[Random.Range(0,4)]);
 			if(randomSize == 0){
 				smallAsteroids += 1;
@@ -56,8 +56,10 @@ public class AsteroidManager : MonoBehaviour {
 	void Update () {
 		totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
 
-		if(totalAsteroids < 10)
+		if(totalAsteroids < 5){
+
 			MaintainAstroids();
+		}
 		
 		Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
 	}
@@ -66,9 +68,9 @@ public class AsteroidManager : MonoBehaviour {
 
 	private void MaintainAstroids(){
 		
-		if(totalAsteroids < 10){
-			int randomSize = Random.Range(0,4);
-			Spawn(randomSize, AsteroidSpawn[Random.Range(0,4)]);
+		
+			int randomSize = 2;//Random.Range(0,3);
+			Spawn(randomSize, AsteroidSpawn[Random.Range(0,5)]);
 			if(randomSize == 0){
 				smallAsteroids += 1;
 			} 
@@ -78,7 +80,7 @@ public class AsteroidManager : MonoBehaviour {
 			if(randomSize == 2){
 				largeAsteroids += 1;
 			}
-		}
+	
 	}
 
 	public int getSmallAsteroids(){

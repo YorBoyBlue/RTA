@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
+	public int max_X = 30;
+	public int max_Y = 30;
+
 	public bool CanMove { get; private set; }
 
 	/*
@@ -72,15 +75,15 @@ public class PlayerControl : MonoBehaviour {
 			 }
 		 }
 
-		 if(transform.position.x > 30 ){
-			transform.position = new Vector3(-30, transform.position.y, 0);
-		}else if(transform.position.x < -30){
-			transform.position = new Vector3(30, transform.position.y, 0);
+		 if(transform.position.x > max_X ){
+			transform.position = new Vector3(-max_X, transform.position.y, 0);
+		}else if(transform.position.x < -max_X){
+			transform.position = new Vector3(max_X, transform.position.y, 0);
 		}
-		if(transform.position.y > 30 ){
-			transform.position = new Vector3(transform.position.x, -30, 0);
-		}else if(transform.position.y < -30){
-			transform.position = new Vector3(transform.position.x, -30, 0);
+		if(transform.position.y > max_Y ){
+			transform.position = new Vector3(transform.position.x, -max_Y, 0);
+		}else if(transform.position.y < -max_Y){
+			transform.position = new Vector3(transform.position.x, -max_Y, 0);
 		}
 	}
 
