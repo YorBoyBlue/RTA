@@ -33,11 +33,12 @@ public class PlayerHealth : NetworkBehaviour {
 	[Server]
 	public bool TakeDamage() {
 		bool died = false;
-		if(m_canTakeDamage) {
+		if (GetComponent<PlayerUpgrades>().HasShieldUpgrade) {
+			died = GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.Shield);
+		} else  if(m_canTakeDamage) {
 			if(m_health <= 0) {
 				m_deaths++;
 				died = true;
-				return died;
 			} else {
 				m_health--;
 				died = m_health <= 0;
@@ -45,7 +46,6 @@ public class PlayerHealth : NetworkBehaviour {
 					m_deaths++;
 				}
 				RpcTakeDamage(died);
-				return died;
 			}
 		}
 		return died;

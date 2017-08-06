@@ -60,7 +60,7 @@ public class Asteroid : NetworkBehaviour {
 				
 				// int newMedAmount = m_AsteroidManager.getMedAsteroids() - 1;
 				//m_AsteroidManager.setMedAsteroids(newMedAmount);
-				if(GetComponentInParent<AsteroidManager>().GetTotalAstroids() < 10){
+				if(AsteroidManager.singleton.GetTotalAstroids() < 10){
 					int newSmallAmount = AsteroidManager.singleton.getSmallAsteroids() + 2;
 					AsteroidManager.singleton.setSmallAsteroids(newSmallAmount);
 					AsteroidManager.singleton.Spawn(0, other.transform.position);

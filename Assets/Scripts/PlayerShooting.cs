@@ -26,7 +26,7 @@ public class PlayerShooting : NetworkBehaviour {
 				if (Input.GetAxis("Fire1") > 0) {
                     float speedFactor = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.Weapon) ? 3f : 1f);
                     m_shootCooldown.x = m_shootCooldown.y / speedFactor;
-					CmdShoot(10f * speedFactor);
+					CmdShoot(25f * speedFactor);
 				}
 			}
 		}
@@ -36,7 +36,7 @@ public class PlayerShooting : NetworkBehaviour {
 	void CmdShoot(float speed) {
 		GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
 		newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-		newBullet.GetComponent<Rigidbody2D>().velocity =  (Vector2)(transform.forward * speed) + GetComponent<PlayerControl>().rb2d.velocity;
+		newBullet.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
 		newBullet.transform.GetChild(0).rotation = transform.rotation;
 		NetworkServer.Spawn(newBullet);
 	}
