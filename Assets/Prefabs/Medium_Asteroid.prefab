@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 60755355828035334}
   - component: {fileID: 114974112706872194}
   - component: {fileID: 114852809347455508}
-  - component: {fileID: 199686287216004972}
-  - component: {fileID: 198913842823069132}
+  - component: {fileID: 199112182036007254}
+  - component: {fileID: 198800220403811476}
   m_Layer: 0
   m_Name: Medium_Asteroid
   m_TagString: Medium
@@ -136,11 +136,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289706784069736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf607b70a320a1e40a659444781ad074, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c4a98f8e2f9f1b429c6ddf046d21c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_X: 0
-  max_Y: 0
+  max_X: 300
+  max_Y: 300
   m_rb2d: {fileID: 50311269260012788}
   size: 1
 --- !u!114 &114852809347455508
@@ -178,25 +178,25 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 144
-    i1: 93
-    i2: 254
-    i3: 173
-    i4: 3
-    i5: 54
-    i6: 84
-    i7: 19
-    i8: 251
-    i9: 53
-    i10: 70
-    i11: 84
-    i12: 190
-    i13: 213
-    i14: 187
-    i15: 145
+    i0: 197
+    i1: 17
+    i2: 186
+    i3: 41
+    i4: 130
+    i5: 214
+    i6: 81
+    i7: 164
+    i8: 56
+    i9: 16
+    i10: 21
+    i11: 20
+    i12: 46
+    i13: 62
+    i14: 85
+    i15: 107
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!198 &198913842823069132
+--- !u!198 &198800220403811476
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3322,7 +3322,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!199 &199686287216004972
+--- !u!199 &199112182036007254
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1

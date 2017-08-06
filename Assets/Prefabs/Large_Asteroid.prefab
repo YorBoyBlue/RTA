@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 60166194835245996}
   - component: {fileID: 114465912070578892}
   - component: {fileID: 114349334970090280}
-  - component: {fileID: 199236483990987036}
-  - component: {fileID: 198351844828066716}
+  - component: {fileID: 199866450109980172}
+  - component: {fileID: 198937977212248042}
   m_Layer: 0
   m_Name: Large_Asteroid
   m_TagString: Large
@@ -193,22 +193,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 133
-    i1: 247
-    i2: 94
-    i3: 212
-    i4: 152
-    i5: 0
-    i6: 52
-    i7: 198
+    i0: 145
+    i1: 12
+    i2: 146
+    i3: 131
+    i4: 83
+    i5: 97
+    i6: 206
+    i7: 132
     i8: 153
-    i9: 253
-    i10: 168
-    i11: 162
-    i12: 128
-    i13: 71
-    i14: 230
-    i15: 133
+    i9: 249
+    i10: 244
+    i11: 90
+    i12: 7
+    i13: 143
+    i14: 75
+    i15: 182
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &114845571067835162
@@ -219,14 +219,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120582973257318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf607b70a320a1e40a659444781ad074, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c4a98f8e2f9f1b429c6ddf046d21c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_X: 0
-  max_Y: 0
+  max_X: 300
+  max_Y: 300
   m_rb2d: {fileID: 50387472386311992}
   size: 1
---- !u!198 &198351844828066716
+--- !u!198 &198937977212248042
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3352,7 +3352,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!199 &199236483990987036
+--- !u!199 &199866450109980172
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1

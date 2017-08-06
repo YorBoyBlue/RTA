@@ -37,7 +37,7 @@ public class PlayerShooting : NetworkBehaviour {
 
 	[Command]
 	void CmdShoot(float speed, int mode) {
-        m_playerManager.AudioManager.PlayAudioClip(AudioClips.MAIN_WEAPON, 1);
+        // m_playerManager.AudioManager.PlayAudioClip(AudioClips.MAIN_WEAPON, 1);
         if (mode == 0) {
             GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
