@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
+	public int max_X = 30;
+	public int max_Y = 30;
+
 	public bool CanMove { get; set; }
 
 	/*
@@ -30,6 +33,12 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	 public Transform thisTransform;
 
+	 [SerializeField]
+	 GameObject bullet;
+
+	public Vector2 shootCooldown;
+	
+
 	// Use this for initialization
 	void Start () {
 		//CanMove = true;
@@ -48,6 +57,29 @@ public class PlayerControl : MonoBehaviour {
 
 			ReadyValues();
 			ApplyValues();
+		}
+
+		 if (Input.GetAxis("Jump") > 0){
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+			 }
+		 }else{
+			 for(int i=1; i < 2; i++){	
+				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+			 }
+		 }
+
+		 if(transform.position.x > max_X ){
+			transform.position = new Vector3(-max_X, transform.position.y, 0);
+		}else if(transform.position.x < -max_X){
+			transform.position = new Vector3(max_X, transform.position.y, 0);
+		}
+		if(transform.position.y > max_Y ){
+			transform.position = new Vector3(transform.position.x, -max_Y, 0);
+		}else if(transform.position.y < -max_Y){
+			transform.position = new Vector3(transform.position.x, -max_Y, 0);
 		}
 	}
 
