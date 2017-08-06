@@ -5,7 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+<<<<<<< HEAD
   - Avatar
+=======
+  - Small
+  - Medium
+  - Large
+>>>>>>> tariq
   layers:
   - Default
   - TransparentFX
@@ -43,6 +49,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: Player
     uniqueID: 4288483693
+=======
+  - name: Background
+    uniqueID: 254608539
+    locked: 0
+  - name: Collision
+    uniqueID: 910608219
+>>>>>>> tariq
     locked: 0
