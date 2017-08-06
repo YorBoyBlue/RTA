@@ -14,9 +14,12 @@ public class AsteroidManager : NetworkBehaviour {
 	private int medAsteroids = 0;
 	private int largeAsteroids = 0;
 	private int totalAsteroids = 0;
+	private int totalPickups = 0;
 
 	Vector2 asteroidVelocity = new Vector2(0, 0);
 	public Vector3[] AsteroidSpawn;
+
+	public GameObject[] PickupPrefabs;
 
 
 	public GameObject[] AsteroidPrefabs;
@@ -55,8 +58,23 @@ public class AsteroidManager : NetworkBehaviour {
 
 			MaintainAstroids();
 		}
+
+		if (totalPickups <= 15) {
+			MaintainPickups();
+		}
 		
 		//Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
+	}
+	public void DecrementTotalPickups() { totalPickups -= 1; }
+
+	[Server]
+	void MaintainPickups() {
+		Vector2 randomSpot = new Vector2(Random.Range(-bounday_X, bounday_X), Random.Range(-boundary_Y, boundary_Y));
+		GameObject pickup = Instantiate(PickupPrefabs[Random.Range(0, PickupPrefabs.Length)], randomSpot, Quaternion.identity);		
+		totalPickups += 1;
+		// Debug.Log(location);
+		//asteroid.transform.SetParent(this.transform);
+		NetworkServer.Spawn(pickup);
 	}
 
 

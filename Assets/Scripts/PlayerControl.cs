@@ -40,11 +40,14 @@ public class PlayerControl : MonoBehaviour {
 	 GameObject bullet;
 
 	public Vector2 shootCooldown;
+
+	public AudioSource engineSrc;
 	
 
 	// Use this for initialization
 	void Start () {
-		CanMove = true;
+		// CanMove = true;
+		engineSrc = GetComponent<AudioSource>();
 		/*
 		speed = 10f;
 		max_horizontalVelocity = 10f;
@@ -74,6 +77,16 @@ public class PlayerControl : MonoBehaviour {
 		}else if(transform.position.y < -max_Y){
 			transform.position = new Vector3(transform.position.x, -max_Y, 0);
 		}
+		float distance = Vector2.SqrMagnitude(rb2d.velocity);
+		if (distance > 0) {
+			if (!engineSrc.isPlaying) {
+				engineSrc.clip = AudioManager.Instance.getClip((int)AudioClip_Enum.TESLA_LOOP);
+				engineSrc.volume = 0.10f;
+				engineSrc.Play();
+			} else {
+				engineSrc.volume = distance / Mathf.Pow(max_speed, 2) * 0.1f;
+			}
+		}
 	}
 
 	/*
@@ -91,9 +104,9 @@ public class PlayerControl : MonoBehaviour {
 
 	//	Receive player inputs
 	void ReadyValues() {
+
 		float v = Input.GetAxisRaw("Jump");
 		if (v > 0) {
-
 			thisTransform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
 			thisTransform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
 

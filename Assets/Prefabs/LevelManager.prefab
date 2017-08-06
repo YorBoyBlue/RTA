@@ -91,6 +91,12 @@ MonoBehaviour:
   - {x: -50, y: 50, z: 0}
   - {x: 50, y: -50, z: 0}
   - {x: 50, y: 50, z: 0}
+  PickupPrefabs:
+  - {fileID: 1902115919098598, guid: 38b6052f35e306349857065b1342e3ee, type: 2}
+  - {fileID: 1899514553116340, guid: 8b5471d68edb41a47977f60b1bbadd65, type: 2}
+  - {fileID: 1677560725331708, guid: e159d751462fc464ca24d834bcc72985, type: 2}
+  - {fileID: 1573666617252882, guid: 7f547c979100a5f449fcd730b4bdceac, type: 2}
+  - {fileID: 1470479934041626, guid: e4cb30271e7a12c498c15f792b96fd65, type: 2}
   AsteroidPrefabs:
   - {fileID: 1456421244774270, guid: 53f7b0ae5b93c4cf9a6c3af12cc51c3b, type: 2}
   - {fileID: 1289706784069736, guid: c511ba2982d651a4381015142e3e556b, type: 2}

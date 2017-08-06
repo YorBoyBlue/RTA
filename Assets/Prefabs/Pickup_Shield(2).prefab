@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4127182565963130}
   - component: {fileID: 114517874899888130}
   - component: {fileID: 58239825470122788}
+  - component: {fileID: 114118250575492990}
+  - component: {fileID: 114706838638324746}
   m_Layer: 0
   m_Name: Pickup_Shield(2)
   m_TagString: Untagged
@@ -126,6 +128,38 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114118250575492990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899514553116340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 139
+    i1: 84
+    i2: 113
+    i3: 214
+    i4: 142
+    i5: 219
+    i6: 65
+    i7: 164
+    i8: 121
+    i9: 119
+    i10: 246
+    i11: 11
+    i12: 27
+    i13: 186
+    i14: 221
+    i15: 101
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114517874899888130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,3 +173,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   value: 2
+--- !u!114 &114706838638324746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899514553116340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

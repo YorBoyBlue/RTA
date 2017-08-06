@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4193774610085002}
   - component: {fileID: 114785102685562582}
   - component: {fileID: 58924151657331966}
+  - component: {fileID: 114696012945985150}
+  - component: {fileID: 114821036343613646}
   m_Layer: 0
   m_Name: Pickup_WeaponDouble (20)
   m_TagString: Untagged
@@ -126,6 +128,38 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114696012945985150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470479934041626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 228
+    i1: 203
+    i2: 48
+    i3: 39
+    i4: 30
+    i5: 122
+    i6: 18
+    i7: 196
+    i8: 152
+    i9: 193
+    i10: 95
+    i11: 121
+    i12: 43
+    i13: 150
+    i14: 253
+    i15: 101
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114785102685562582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,3 +173,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   value: 20
+--- !u!114 &114821036343613646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470479934041626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

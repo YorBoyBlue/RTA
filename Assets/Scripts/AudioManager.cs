@@ -11,7 +11,8 @@ public enum AudioClip_Enum {
 	EXPLOSION_Fiery,
 	EXPLOSION_Test,
 	ATMOSPHERE_1,
-	ATMOSPHERE_2
+	ATMOSPHERE_2,
+	TESLA_LOOP
 }
 
 public class AudioManager : MonoBehaviour {
@@ -33,6 +34,10 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	[SerializeField] AudioClip[] clips;
+
+	public AudioClip getClip(int index) {
+		return clips[index];
+	}
 
 	public void PlayMusic(AudioSource src) {
 		src.clip = clips[(int)AudioClip_Enum.ATMOSPHERE_1];
