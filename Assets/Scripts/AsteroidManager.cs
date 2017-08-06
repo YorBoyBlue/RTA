@@ -124,7 +124,7 @@ public class AsteroidManager : NetworkBehaviour {
 
 		}
 		GameObject asteroid = Instantiate(AsteroidPrefabs[size], location, Quaternion.identity);		
-		Debug.Log(location);
+		// Debug.Log(location);
 		//asteroid.transform.SetParent(this.transform);
 		asteroid.GetComponent<Asteroid>().max_X = bounday_X;
 		asteroid.GetComponent<Asteroid>().max_Y = boundary_Y;

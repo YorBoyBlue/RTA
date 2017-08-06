@@ -56,6 +56,7 @@ public class PlayerHealth : NetworkBehaviour {
 	[ClientRpc]
 	void RpcTakeDamage(bool died) {
 		if(died) {
+			AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), AudioClip_Enum.EXPLOSION_Alien);
 			m_playerManager.GameOver();
 		}
 	}

@@ -39,12 +39,14 @@ public class PlayerShooting : NetworkBehaviour {
 	void CmdShoot(float speed, int mode) {
         // m_playerManager.AudioManager.PlayAudioClip(AudioClips.MAIN_WEAPON, 1);
         if (mode == 0) {
+            RpcShoot(AudioClip_Enum.WEAPON_Blaster);
             GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
             newBullet.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
             newBullet.transform.GetChild(0).rotation = transform.rotation;
             NetworkServer.Spawn(newBullet);
         } else if (mode == 1) {
+            RpcShoot(AudioClip_Enum.WEAPON_PhotonGun);
             GameObject newBullet1 = Instantiate(m_bullet, transform.position + transform.right, Quaternion.identity);
             GameObject newBullet2 = Instantiate(m_bullet, transform.position - transform.right, Quaternion.identity);
             newBullet1.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
@@ -57,6 +59,14 @@ public class PlayerShooting : NetworkBehaviour {
             NetworkServer.Spawn(newBullet2);
         }
 	}
+    /*
+    PLAYS THE AUDIO TO ALL CLIENTS WHEN CALLED SHOOT
+     */
+    [ClientRpc]
+    void RpcShoot(AudioClip_Enum type) {            
+        AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), type, 1f, Random.Range(1, 1.25f));
+        // Debug.Log("FIRE");
+    }
 
     // [Command]
     // void CmdFireShot(Vector3 origin, Vector3 direction)

@@ -23,6 +23,7 @@ public class Asteroid : NetworkBehaviour {
 	private bool ApplicationClosing = false;
 	public float size = 1;	
 
+
 	// Use this for initialization
 	void Start () {
 		// max_X = AsteroidManager.singleton.GetBoundary().x;
@@ -50,6 +51,8 @@ public class Asteroid : NetworkBehaviour {
 			other.transform.parent.GetComponent<PlayerHealth>().TakeDamage();
 		}
 		if (split) {			
+			GetComponent<PolygonCollider2D>().enabled = false;
+			RpcAsteroidDestroy();
 			if(this.tag == "Large"){				
 				// int newLargeAmount = m_AsteroidManager.getLargeAsteroids() - 1;
 				// m_AsteroidManager.setLargeAsteroids(newLargeAmount);
@@ -69,12 +72,16 @@ public class Asteroid : NetworkBehaviour {
 				AsteroidManager.singleton.Spawn(0, other.transform.position);
 				AsteroidManager.singleton.Spawn(0, other.transform.position);			
 			}
-			
-			GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
-			GetComponent<ParticleSystem>().Play();
-			Destroy(this.gameObject, 0.4f);
 		}
 
+	}
+
+	[ClientRpc]
+	void RpcAsteroidDestroy() {
+		GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
+		GetComponent<ParticleSystem>().Play();
+		AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), AudioClip_Enum.EXPLOSION_Test, 0.5f);
+		Destroy(this.gameObject, 1f);
 	}
 
 	[Server]
