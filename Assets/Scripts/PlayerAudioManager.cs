@@ -31,21 +31,48 @@ public class PlayerAudioManager : NetworkBehaviour {
 	[SerializeField] AudioSource m_ambientAudioSource;
 	[SerializeField] AudioSource m_loopAudioSource;
 
+	public void PlayAudioClip(AudioClips audioClip, float volumeScale = 1) {
+		CmdPlayAudioClip(audioClip, volumeScale);
+	}
+
+	public void PlayAmbientAudioClip(AmbientAudioClips ambientAudioClip, float volumeScale = 1) {
+		CmdPlayAmbientAudioClip(ambientAudioClip, volumeScale);
+	}
+
+	public void PlayLoopAudioClip(LoopAudioClips audioClipToLoop, float volumeScale = 1) {
+		CmdPlayLoopAudioClip(audioClipToLoop, volumeScale);
+	}
+
+	[Command]
+	public void CmdPlayAudioClip(AudioClips audioClip, float volumeScale) {
+		RpcPlayAudioClip(audioClip, volumeScale);
+	}
+
+	[Command]
+	public void CmdPlayAmbientAudioClip(AmbientAudioClips ambientAudioClip, float volumeScale) {
+		RpcPlayAmbientAudioClip(ambientAudioClip, volumeScale);
+	}
+
+	[Command]
+	public void CmdPlayLoopAudioClip(LoopAudioClips audioClipToLoop, float volumeScale) {
+		RpcPlayLoopAudioClip(audioClipToLoop, volumeScale);
+	}
+
 	[ClientRpc]
-	public void RpcPlayAudioClip(AudioClips audioClip, float volumeScale = 1f) {
+	public void RpcPlayAudioClip(AudioClips audioClip, float volumeScale) {
 		m_audioSource.clip = m_audioClips[(int)audioClip];
 		m_audioSource.PlayOneShot(m_audioSource.clip, volumeScale);
 	}
 
 	[ClientRpc]
-	public void RpcPlayAmbientAudioClip(AmbientAudioClips ambientAudioClip, float volumeScale = 1f) {
-		m_ambientAudioSource.clip = m_audioClips[(int)ambientAudioClip];
+	public void RpcPlayAmbientAudioClip(AmbientAudioClips ambientAudioClip, float volumeScale) {
+		m_ambientAudioSource.clip = m_ambientAudioClips[(int)ambientAudioClip];
 		m_ambientAudioSource.PlayOneShot(m_audioSource.clip, volumeScale);
 	}
 
 	[ClientRpc]
-	public void RpcPlayLoopAudioClip(LoopAudioClips audioClipToLoop, float volumeScale = 1f) {
-		m_loopAudioSource.clip = m_audioClips[(int)audioClipToLoop];
+	public void RpcPlayLoopAudioClip(LoopAudioClips audioClipToLoop, float volumeScale) {
+		m_loopAudioSource.clip = m_loopAudioClips[(int)audioClipToLoop];
 		m_loopAudioSource.loop = true;
 		m_loopAudioSource.Play();
 	}	

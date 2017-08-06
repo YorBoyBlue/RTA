@@ -242,6 +242,11 @@ Prefab:
       propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114473987950305156, guid: f19e420e4815ddd47ba57b4da6eaa7b3,
+        type: 2}
+      propertyPath: m_playerAudioManager
+      value: 
+      objectReference: {fileID: 568575480}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f19e420e4815ddd47ba57b4da6eaa7b3, type: 2}
   m_IsPrefabParent: 0
@@ -334,6 +339,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568575480 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114131495404728454, guid: f19e420e4815ddd47ba57b4da6eaa7b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 18518484}
+  m_Script: {fileID: 11500000, guid: 654d957ea50c3034c9f342b8dc32f7c8, type: 3}
 --- !u!1 &772328932
 GameObject:
   m_ObjectHideFlags: 0

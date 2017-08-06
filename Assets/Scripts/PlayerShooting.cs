@@ -34,6 +34,7 @@ public class PlayerShooting : NetworkBehaviour {
 
 	[Command]
 	void CmdShoot(float speed) {
+        m_playerManager.AudioManager.PlayAudioClip(AudioClips.MAIN_WEAPON, 1);
 		GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
 		newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
 		newBullet.GetComponent<Rigidbody2D>().velocity =  (Vector2)(transform.forward * speed) + GetComponent<PlayerControl>().rb2d.velocity;
