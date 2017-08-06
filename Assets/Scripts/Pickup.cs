@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PickupType {
 	Shield,
 	Weapon,
-	Speed
+	Speed,
+	Count
 }
 
 public class Pickup : MonoBehaviour {
@@ -14,10 +15,9 @@ public class Pickup : MonoBehaviour {
 	public float value;
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player") {
-			other.GetComponent<PlayerUpgrades>().AddUpgrade(this);
+		if (other.tag == "Avatar") {
+			other.transform.parent.GetComponent<PlayerUpgrades>().AddUpgrade(this);
 			Destroy(gameObject);
 		}
-		Debug.Log(other.name);
 	}
 }

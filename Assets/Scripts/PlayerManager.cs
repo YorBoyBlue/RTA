@@ -22,7 +22,7 @@ public class PlayerManager : NetworkBehaviour {
 	
     void Start() {
         if(isLocalPlayer) {
-            Camera.main.GetComponent<CameraFollow>().SetPlayer = this.gameObject;
+            Camera.main.GetComponent<CameraFollow>().SetTargetTransform = transform;
             ActivatePlayer();
         } else if(!isLocalPlayer) {
             m_toggleRemote.Invoke(false);
