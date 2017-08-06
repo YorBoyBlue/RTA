@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 4124965297422032}
   - component: {fileID: 212453347221422800}
   - component: {fileID: 58987967217234846}
+  - component: {fileID: 114726756603071564}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -433,8 +434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57f1b974b05b72439bf821a97d12aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_speed: 25
   thrust_speed: 10
-  thrust_velocity: {x: 0, y: 0}
+  ship_velocity: {x: 0, y: 0}
   currentRotation: 0
   rb2d: {fileID: 50167757176100774}
   thisTransform: {fileID: 4227167140098734}
@@ -716,6 +718,20 @@ MonoBehaviour:
     i15: 179
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114726756603071564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973100543310548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fb1ec05ed66864ebb3155d08a658e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  changeColorSpeed: 10
+  colorMode: 1
 --- !u!114 &114790109872569100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -856,7 +872,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -875,8 +891,8 @@ SpriteRenderer:
   m_SortingLayerID: -6483603
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 99d6b27c31fcd4745be215285866c159, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0a3b715b3a934481f9e0aa1c7f3eb908, type: 3}
+  m_Color: {r: 1, g: 0, b: 1, a: 0.972}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public bool CanMove { get; set; }
 
+	public float max_speed;
 	/*
 	The base speed the ship will be using while thrusting
 	 */
@@ -64,10 +65,6 @@ public class PlayerControl : MonoBehaviour {
 		// Debug.Log(rotation_velocity.x);
 	}
 
-	void MoveShip() {
-		
-	}
-
 	//	Receive player inputs
 	void ReadyValues() {
 		float v = Input.GetAxisRaw("Jump");
@@ -75,6 +72,10 @@ public class PlayerControl : MonoBehaviour {
 			float speed = v * thrust_speed * Time.deltaTime;
 			
 			ship_velocity = (Vector2)(thisTransform.forward * speed) + rb2d.velocity;
+
+			if (Vector2.SqrMagnitude(ship_velocity) > Mathf.Pow(max_speed, 2)) {
+				ship_velocity = Vector2.ClampMagnitude(ship_velocity, max_speed);
+			}
 		}
 	}
 
