@@ -30,6 +30,7 @@ public class PlayerHealth : NetworkBehaviour {
 		RpcTakeDamage(died);
 	}
 	
+	[Server]
 	public bool TakeDamage() {
 		bool died = false;
 		if(m_canTakeDamage) {
@@ -43,7 +44,7 @@ public class PlayerHealth : NetworkBehaviour {
 				if(died) {
 					m_deaths++;
 				}
-				CmdTakeDamage(died);
+				RpcTakeDamage(died);
 				return died;
 			}
 		}
@@ -60,7 +61,7 @@ public class PlayerHealth : NetworkBehaviour {
 	void OnHealthChanged(int value) {
 		m_health = value;
 		if(isLocalPlayer) {
-            m_hud.UpdateHealthIcons(value);
+			m_hud.UpdateHealthIcons(m_health);
 		}
 	}
 

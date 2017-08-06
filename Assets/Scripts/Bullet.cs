@@ -25,13 +25,14 @@ public class Bullet : NetworkBehaviour {
 		Destroy(gameObject, 1f);
 	}
 
+	[Server]
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Avatar")) {
 			GameObject parent = other.gameObject.transform.parent.gameObject;
-			Debug.Log(parent);
-			if(m_bulletOwner != parent.GetComponent<PlayerHealth>() && parent.GetComponent<PlayerHealth>().TakeDamage()) {
-				Debug.Log("kjsdfhksldjfslfjd");
-				m_bulletOwner.Kills++;
+			if(m_bulletOwner != parent.GetComponent<PlayerHealth>()) {
+				if(parent.GetComponent<PlayerHealth>().TakeDamage()) {
+					m_bulletOwner.Kills++;
+				}
 			}
 		}
 	}

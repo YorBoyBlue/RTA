@@ -32,7 +32,7 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CanMove = true;
+		//CanMove = true;
 		/*
 		speed = 10f;
 		max_horizontalVelocity = 10f;
