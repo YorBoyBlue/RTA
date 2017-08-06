@@ -52,14 +52,11 @@ GameObject:
   - component: {fileID: 4197549669583080}
   - component: {fileID: 114035403306813706}
   - component: {fileID: 50840166262998612}
-<<<<<<< HEAD
   - component: {fileID: 61623005029485272}
   - component: {fileID: 114542339316945736}
   - component: {fileID: 114249723683087346}
   - component: {fileID: 96299612291795376}
-=======
   - component: {fileID: 61280436639671026}
->>>>>>> tariq
   m_Layer: 0
   m_Name: test_bullet
   m_TagString: Bullet

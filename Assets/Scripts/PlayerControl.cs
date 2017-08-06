@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-<<<<<<< HEAD
-	public bool CanMove { get; set; }
-=======
 	public int max_X = 30;
 	public int max_Y = 30;
 
-	public bool CanMove { get; private set; }
->>>>>>> tariq
+	public bool CanMove { get; set; }
 
 	/*
 	The base speed the ship will be using while thrusting
@@ -37,15 +33,12 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	 public Transform thisTransform;
 
-<<<<<<< HEAD
-=======
 	 [SerializeField]
 	 GameObject bullet;
 
 	public Vector2 shootCooldown;
 	
 
->>>>>>> tariq
 	// Use this for initialization
 	void Start () {
 		CanMove = true;

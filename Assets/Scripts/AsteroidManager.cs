@@ -61,7 +61,7 @@ public class AsteroidManager : MonoBehaviour {
 			MaintainAstroids();
 		}
 		
-		Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
+		//Debug.Log("Large Asteroids: " + largeAsteroids + " Med Asteroids: " + medAsteroids + " Small Asteroids: " + smallAsteroids + " TOTAL== " + totalAsteroids);
 	}
 
 
