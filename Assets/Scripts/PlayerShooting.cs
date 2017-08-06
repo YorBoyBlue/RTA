@@ -2,9 +2,9 @@
 using UnityEngine.Networking;
 
 public class PlayerShooting : NetworkBehaviour {
-    [SerializeField] Transform firePosition;
-	[SerializeField] GameObject bullet;
-	public Vector2 shootCooldown;
+    [SerializeField] Transform m_firePosition;
+	[SerializeField] GameObject m_bullet;
+	public Vector2 m_shootCooldown;
     [SerializeField] PlayerManager m_playerManager;
 	[SerializeField] HUDManager m_hud;
     bool canShoot;
@@ -15,27 +15,28 @@ public class PlayerShooting : NetworkBehaviour {
 		}
     }
 
-    void Update() {
+    void Update() {        
         if (!canShoot) {
             return;
 		}
-		if (shootCooldown.x > 0) {
-			shootCooldown.x -= Time.deltaTime;
+		if (m_shootCooldown.x > 0) {
+			m_shootCooldown.x -= Time.deltaTime;
 		} else {
-			if(isLocalPlayer) {
-				if (Input.GetAxis("Fire1") > 0) {
-					CmdShoot();
-				}
-			}
+            if(isLocalPlayer) {
+                if (Input.GetAxis("Fire1") > 0) {
+                    CmdShoot();
+                }
+            }            
+		    m_shootCooldown.x = m_shootCooldown.y;
 		}
     }
 
 	[Command]
 	void CmdShoot() {
-		shootCooldown.x = shootCooldown.y;
-		GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+		GameObject newBullet = Instantiate(m_bullet, m_firePosition.position, Quaternion.identity);
 		newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-		newBullet.GetComponent<Bullet>().velocity =  transform.forward * 1000f;
+		Vector2 velocity =  transform.forward * 10f;
+		newBullet.GetComponent<Rigidbody2D>().velocity = velocity;
 		newBullet.transform.GetChild(0).rotation = transform.rotation;
 		NetworkServer.Spawn(newBullet);
 	}

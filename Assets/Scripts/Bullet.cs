@@ -11,14 +11,13 @@ public class Bullet : NetworkBehaviour {
 
 	void Start() {
 		thisTransform = transform;
-		Destroy(thisTransform.GetChild(0).gameObject, 5f);
-		GetComponent<Rigidbody2D>().AddRelativeForce(velocity);
+		//Destroy(thisTransform.GetChild(0).gameObject, 5f);
 	}
 
 	void Update() {
-		if (thisTransform.childCount == 1) {
-			DestroyBullet();
-		}
+		// if (thisTransform.childCount == 1) {
+		// 	DestroyBullet();
+		// }
 	}
 
 	void DestroyBullet() {
@@ -26,9 +25,12 @@ public class Bullet : NetworkBehaviour {
 		Destroy(gameObject, 1f);
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.CompareTag("Player")) {
-			if(other.gameObject.GetComponent<PlayerHealth>().TakeDamage()) {
+	void OnTriggerEnter2D(Collider2D other) {
+		if(other.gameObject.CompareTag("Avatar")) {
+			GameObject parent = other.gameObject.transform.parent.gameObject;
+			Debug.Log(parent);
+			if(m_bulletOwner != parent.GetComponent<PlayerHealth>() && parent.GetComponent<PlayerHealth>().TakeDamage()) {
+				Debug.Log("kjsdfhksldjfslfjd");
 				m_bulletOwner.Kills++;
 			}
 		}

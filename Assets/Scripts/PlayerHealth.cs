@@ -7,7 +7,6 @@ public class PlayerHealth : NetworkBehaviour {
 	[SerializeField] PlayerManager m_playerManager;
 	[SerializeField] HUDManager m_hud;
 	[SerializeField] int m_maxHealth;
-	[SerializeField] int m_maxLives;
 	bool m_canTakeDamage = true;
 	[SyncVar (hook = "OnHealthChanged")] int m_health;
 	[SyncVar (hook = "OnDeathsChanged")] int m_deaths;
@@ -25,13 +24,18 @@ public class PlayerHealth : NetworkBehaviour {
 		m_health = m_maxHealth;
 		m_deaths = 0;
 	}
-
-	[Server]
+	
+	[Command]
+	void CmdTakeDamage(bool died) {
+		RpcTakeDamage(died);
+	}
+	
 	public bool TakeDamage() {
 		bool died = false;
 		if(m_canTakeDamage) {
 			if(m_health <= 0) {
 				m_deaths++;
+				died = true;
 				return died;
 			} else {
 				m_health--;
@@ -39,7 +43,7 @@ public class PlayerHealth : NetworkBehaviour {
 				if(died) {
 					m_deaths++;
 				}
-				RpcTakeDamage(died);
+				CmdTakeDamage(died);
 				return died;
 			}
 		}

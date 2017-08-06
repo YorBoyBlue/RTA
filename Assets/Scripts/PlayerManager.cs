@@ -14,6 +14,8 @@ public class PlayerManager : NetworkBehaviour {
 
     [SerializeField] PlayerControl m_playerControl;
 
+    float m_respawnDelay = 5f;
+
     Camera m_mainCamera;
 
     public bool GetLocalPlayer { get { return isLocalPlayer; }}
@@ -36,18 +38,21 @@ public class PlayerManager : NetworkBehaviour {
 
     public void GameOver() {
         DeactivatePlayer();
+        Invoke("Respawn", m_respawnDelay);
     }
 
     void ActivatePlayer() {
         if(isLocalPlayer) {
             m_toggleLocal.Invoke(true);
         }
+        m_toggleShared.Invoke(true);
     }
 
     void DeactivatePlayer() {        
         if(isLocalPlayer) {
             m_toggleLocal.Invoke(false);
         }
+        m_toggleShared.Invoke(false);
     }
 
     void Respawn() {
