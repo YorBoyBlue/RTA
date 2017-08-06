@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable] public class ToggleEvent : UnityEvent<bool>{}
 
@@ -14,6 +15,10 @@ public class PlayerManager : NetworkBehaviour {
 
     [SerializeField] PlayerControl m_playerControl;
     [SerializeField] PlayerAudioManager m_playerAudioManager;
+    [SerializeField] GameObject m_playerScoreInfoPrefab;
+
+    [SerializeField] Text m_nameText;
+    [SyncVar] public string m_name = "Player";
 
     float m_respawnDelay = 5f;
 
@@ -73,5 +78,24 @@ public class PlayerManager : NetworkBehaviour {
             this.transform.rotation = spawnPoint.rotation;
         }
         ActivatePlayer();
+    }
+
+    public void LoadPlayerScoreInfo() {
+        RpcLoadPlayerScoreInfo(m_name, GetComponent<PlayerHealth>().Kills, GetComponent<PlayerHealth>().Deaths);
+    }
+
+    [ClientRpc]
+    public void RpcLoadPlayerScoreInfo(string name, int kills, int deaths) {
+        GameObject myScoreInfo = Instantiate(m_playerScoreInfoPrefab, ScoreboardManager.m_singleton.ScoreBoard.transform);
+        myScoreInfo.GetComponent<PlayerScoreInfo>().Name = name;
+        myScoreInfo.GetComponent<PlayerScoreInfo>().Kills = kills.ToString();
+        myScoreInfo.GetComponent<PlayerScoreInfo>().Deaths = deaths.ToString();
+    }
+
+    [ClientRpc]
+    public void RpcSetName() {
+        if(isLocalPlayer) {
+            m_nameText.text = m_name;
+        }
     }
 }
