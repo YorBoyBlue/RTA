@@ -44,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//CanMove = true;
+		CanMove = true;
 		/*
 		speed = 10f;
 		max_horizontalVelocity = 10f;
@@ -63,18 +63,6 @@ public class PlayerControl : MonoBehaviour {
 			ReadyValues();
 			ApplyValues();
 		}
-
-		//  if (Input.GetAxis("Jump") > 0){
-		// 	 for(int i=1; i < 2; i++){	
-		// 		 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
-		// 		 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
-		// 	 }
-		//  }else{
-		// 	 for(int i=1; i < 2; i++){	
-		// 		 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
-		// 		 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
-		// 	 }
-		//  }
 
 		 if(transform.position.x > max_X ){
 			transform.position = new Vector3(-max_X, transform.position.y, 0);
@@ -105,6 +93,10 @@ public class PlayerControl : MonoBehaviour {
 	void ReadyValues() {
 		float v = Input.GetAxisRaw("Jump");
 		if (v > 0) {
+
+			thisTransform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+			thisTransform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+
 			float speed = v * thrust_speed * Time.deltaTime;
 			
 			ship_velocity = (Vector2)(thisTransform.forward * speed) + rb2d.velocity;
@@ -112,6 +104,9 @@ public class PlayerControl : MonoBehaviour {
 			if (Vector2.SqrMagnitude(ship_velocity) > Mathf.Pow(max_speed, 2)) {
 				ship_velocity = Vector2.ClampMagnitude(ship_velocity, max_speed);
 			}
+		} else {			
+			thisTransform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+			thisTransform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
 		}
 	}
 

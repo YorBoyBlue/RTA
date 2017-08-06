@@ -10,16 +10,16 @@ public class Bullet : NetworkBehaviour {
 
 	void Start() {
 		thisTransform = transform;
-		//Destroy(thisTransform.GetChild(0).gameObject, 5f);
+		Destroy(thisTransform.GetChild(0).gameObject, 5f);
 	}
 
 	void Update() {
-		// if (thisTransform.childCount == 1) {
-		// 	DestroyBullet();
-		// }
+		if (thisTransform.childCount == 1) {
+			DestroyBullet();
+		}
 	}
 
-	void DestroyBullet() {
+	public void DestroyBullet() {
 		GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		Destroy(gameObject, 1f);
 	}

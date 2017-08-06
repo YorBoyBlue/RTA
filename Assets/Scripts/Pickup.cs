@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum PickupType {
 	Shield,
-	Weapon,
+	WeaponDouble,
+	WeaponBoost,
 	Speed,
 	Count
 }
