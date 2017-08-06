@@ -13,6 +13,7 @@ public class PlayerHealth : NetworkBehaviour {
     [SyncVar (hook = "OnKillsChanged")] int m_kills;
 
 	public int Kills { get { return m_kills;}set { m_kills = value; }}
+	public HUDManager HUD { get { return m_hud; } }
 
 	[ServerCallback]
 	void OnEnable() {
@@ -35,6 +36,7 @@ public class PlayerHealth : NetworkBehaviour {
 		bool died = false;
 		if (GetComponent<PlayerUpgrades>().HasShieldUpgrade) {
 			died = GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.Shield);
+			m_hud.UpdateShieldIcons((int)GetComponent<PlayerUpgrades>().GetUpgrade(PickupType.Shield).value);
 		} else  if(m_canTakeDamage) {
 			if(m_health <= 0) {
 				m_deaths++;

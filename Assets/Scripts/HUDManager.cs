@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour {
     [SerializeField] GameObject m_ShipSelectPanel;
 	[SerializeField] Image[] m_healthIcons;
+	[SerializeField] Image[] m_shieldIcons;
 	[SerializeField] Text m_kills;
 	Color m_hitColor = Color.red;
 	Color m_healthColor = Color.green;
+	Color m_shieldColor = Color.blue;
 
 	void Start() {
 		UpdateHealthIcons(m_healthIcons.Length);
+		UpdateShieldIcons(0);
 	}
 
 	public void UpdateHealthIcons(int health) {
@@ -20,6 +23,16 @@ public class HUDManager : MonoBehaviour {
 				m_healthIcons[i].color = m_healthColor;
 			} else {
 				m_healthIcons[i].color = m_hitColor;
+			}
+		}
+	}
+
+	public void UpdateShieldIcons(int shield) {
+		for(int i = 0; i < m_shieldIcons.Length; i++) {
+			if(i < shield) {
+				m_shieldIcons[i].color = m_shieldColor;
+			} else {
+				m_shieldIcons[i].color = m_hitColor;
 			}
 		}
 	}

@@ -64,7 +64,7 @@ public class AsteroidManager : NetworkBehaviour {
 	[Server]
 	private void MaintainAstroids(){		
 		int randomSize = Random.Range(0,AsteroidPrefabs.Length);
-		Spawn(randomSize, new Vector3(Random.Range(-bounday_X, bounday_X), Random.Range(-boundary_Y, boundary_Y), 0));	
+		Spawn(2 , new Vector3(Random.Range(-bounday_X, bounday_X), Random.Range(-boundary_Y, boundary_Y), 0));	
 	}
 	
 	[Server]
@@ -124,6 +124,7 @@ public class AsteroidManager : NetworkBehaviour {
 
 		}
 		GameObject asteroid = Instantiate(AsteroidPrefabs[size], location, Quaternion.identity);		
+		Debug.Log(location);
 		//asteroid.transform.SetParent(this.transform);
 		asteroid.GetComponent<Asteroid>().max_X = bounday_X;
 		asteroid.GetComponent<Asteroid>().max_Y = boundary_Y;

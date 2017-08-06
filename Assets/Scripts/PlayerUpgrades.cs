@@ -22,13 +22,27 @@ public class PlayerUpgrades : MonoBehaviour {
 		}
 	}
 
+	public void ClearUpgrades() {
+		for (int i =0; i < upgrades.Length; i++) {
+			upgrades[i].value = 0;
+		}
+	}
+
+	public Upgrade GetUpgrade(PickupType type) {
+		return upgrades[(int)type];
+	}
+
 	public bool HasUpgrade(PickupType type) {
 		return upgrades[(int)type].value > 0;
 	}
 	
 	public void AddUpgrade(Pickup pickup) {
 		upgrades[(int)pickup.type].type = pickup.type;
-		upgrades[(int)pickup.type].value += pickup.value;
+		upgrades[(int)pickup.type].value = pickup.value;
+
+		if (pickup.type == PickupType.Shield) {
+			GetComponent<PlayerHealth>().HUD.UpdateShieldIcons((int)pickup.value);
+		}
 	}
 
 	public bool ConsumeUpgrade(PickupType type) {

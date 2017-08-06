@@ -29,7 +29,7 @@ public class PlayerShooting : NetworkBehaviour {
 
                     int mode = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.WeaponDouble) ? 1 : 0);
 
-					CmdShoot(25f * speedFactor, mode);
+					CmdShoot(50f * speedFactor, mode);
 				}
 			}
 		}

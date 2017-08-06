@@ -33,9 +33,11 @@ public class Asteroid : NetworkBehaviour {
 
 	[Server]
 	void OnTriggerEnter2D(Collider2D other) {
+		bool split = false;
+
 		if(other.tag == "Bullet"){
 			Destroy(other.gameObject);
-	
+			split = true;
 		// size -= size_decrement;
 		// if (size < size_min) {
 		// 	Destroy(this.gameObject);
@@ -43,30 +45,27 @@ public class Asteroid : NetworkBehaviour {
 		// } else {
 		// 	Split();
 		// }
-			if(this.tag == "Large"){
-				
+		} else if (other.gameObject.tag == "Avatar") {
+			split = true;
+			other.transform.parent.GetComponent<PlayerHealth>().TakeDamage();
+		}
+		if (split) {			
+			if(this.tag == "Large"){				
 				// int newLargeAmount = m_AsteroidManager.getLargeAsteroids() - 1;
 				// m_AsteroidManager.setLargeAsteroids(newLargeAmount);
-				if(AsteroidManager.singleton.GetTotalAstroids() < 10){
-					int newMedAmount = AsteroidManager.singleton.getMedAsteroids() + 2;
-					AsteroidManager.singleton.setMedAsteroids(newMedAmount);
-					AsteroidManager.singleton.Spawn(1, other.transform.position);
-					AsteroidManager.singleton.Spawn(1, other.transform.position);
-				}
-				Destroy(this.gameObject);
-				
+				int newMedAmount = AsteroidManager.singleton.getMedAsteroids() + 2;
+				AsteroidManager.singleton.setMedAsteroids(newMedAmount);
+				AsteroidManager.singleton.Spawn(1, other.transform.position);
+				AsteroidManager.singleton.Spawn(1, other.transform.position);
+				Destroy(this.gameObject);				
 			}
-			if(this.tag == "Medium"){
-				
+			if(this.tag == "Medium"){				
 				// int newMedAmount = m_AsteroidManager.getMedAsteroids() - 1;
 				//m_AsteroidManager.setMedAsteroids(newMedAmount);
-				if(AsteroidManager.singleton.GetTotalAstroids() < 10){
-					int newSmallAmount = AsteroidManager.singleton.getSmallAsteroids() + 2;
-					AsteroidManager.singleton.setSmallAsteroids(newSmallAmount);
-					AsteroidManager.singleton.Spawn(0, other.transform.position);
-					AsteroidManager.singleton.Spawn(0, other.transform.position);
-				}
-				
+				int newSmallAmount = AsteroidManager.singleton.getSmallAsteroids() + 2;
+				AsteroidManager.singleton.setSmallAsteroids(newSmallAmount);
+				AsteroidManager.singleton.Spawn(0, other.transform.position);
+				AsteroidManager.singleton.Spawn(0, other.transform.position);				
 				Destroy(this.gameObject);
 			}
 			if(this.tag == "Small"){
@@ -87,10 +86,10 @@ public class Asteroid : NetworkBehaviour {
 		// 	NetworkServer.Destroy(this.gameObject);
 		// } else {
 			if(Mathf.Abs(transform.position.x) >  max_X + m_offset){
-				AsteroidManager.singleton.Spawn(Random.Range(0, AsteroidManager.singleton.AsteroidPrefabs.Length), new Vector2(transform.position.x * -1 + (m_offset * 0.5f), transform.position.y), m_rb2d.velocity.x, m_rb2d.velocity.y);
+				AsteroidManager.singleton.Spawn(Random.Range(0, AsteroidManager.singleton.AsteroidPrefabs.Length), new Vector2((m_rb2d.velocity.x > 0 ? -max_X : max_X), transform.position.y), m_rb2d.velocity.x, m_rb2d.velocity.y);
 				NetworkServer.Destroy(this.gameObject);		
 			} else if(Mathf.Abs(transform.position.y) > max_Y + m_offset){
-				AsteroidManager.singleton.Spawn(Random.Range(0, AsteroidManager.singleton.AsteroidPrefabs.Length), new Vector2(transform.position.x, transform.position.y * -1 + (m_offset * 0.5f)), m_rb2d.velocity.x, m_rb2d.velocity.y);
+				AsteroidManager.singleton.Spawn(Random.Range(0, AsteroidManager.singleton.AsteroidPrefabs.Length), new Vector2(transform.position.x, (m_rb2d.velocity.y > 0 ? -max_Y : max_Y)), m_rb2d.velocity.x, m_rb2d.velocity.y);
 				NetworkServer.Destroy(this.gameObject);		
 			}
 		//}
