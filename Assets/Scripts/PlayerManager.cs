@@ -36,6 +36,14 @@ public class PlayerManager : NetworkBehaviour {
         }
     }
 
+    [ClientRpc]
+    public void RpcSetBounds(float x, float y) {
+        if(isLocalPlayer) {
+            m_playerControl.max_X = x;
+            m_playerControl.max_Y = y;
+        }
+    }
+
     public void GameOver() {
         DeactivatePlayer();
         Invoke("Respawn", m_respawnDelay);

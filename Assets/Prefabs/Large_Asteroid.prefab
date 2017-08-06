@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 50387472386311992}
   - component: {fileID: 114845571067835162}
   - component: {fileID: 60166194835245996}
+  - component: {fileID: 114465912070578892}
+  - component: {fileID: 114349334970090280}
   m_Layer: 0
   m_Name: Large_Asteroid
   m_TagString: Large
@@ -38,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1120582973257318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,7 +58,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -154,6 +156,59 @@ PolygonCollider2D:
       - {x: 0.7, y: -1.4699999}
       - {x: 0.84, y: -1.4499999}
       - {x: 1.01, y: -1.41}
+--- !u!114 &114349334970090280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120582973257318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114465912070578892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120582973257318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 133
+    i1: 247
+    i2: 94
+    i3: 212
+    i4: 152
+    i5: 0
+    i6: 52
+    i7: 198
+    i8: 153
+    i9: 253
+    i10: 168
+    i11: 162
+    i12: 128
+    i13: 71
+    i14: 230
+    i15: 133
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114845571067835162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf607b70a320a1e40a659444781ad074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_X: 0
+  max_Y: 0
+  m_rb2d: {fileID: 50387472386311992}
   size: 1
 --- !u!212 &212154437017152912
 SpriteRenderer:
@@ -195,8 +253,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 910608219
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a8f595473ae5d430882ebac84e34363d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

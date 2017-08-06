@@ -39,7 +39,9 @@ public class FreeForAllManager : NetworkBehaviour {
 	[Server]
 	void StartGame() {
 		foreach(GameObject g in m_players) {
-			g.GetComponent<PlayerManager>().RpcSetCanMove(true);
+			PlayerManager pm = g.GetComponent<PlayerManager>();
+			pm.RpcSetCanMove(true);
+			pm.RpcSetBounds(AsteroidManager.singleton.GetBoundary().x, AsteroidManager.singleton.GetBoundary().y);
 		}
 	}
 }

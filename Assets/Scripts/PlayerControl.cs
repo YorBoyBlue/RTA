@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-	public int max_X = 30;
-	public int max_Y = 30;
+	public float max_X = 0;
+	public float max_Y = 0;
 
 	public bool CanMove { get; set; }
 
@@ -48,6 +48,8 @@ public class PlayerControl : MonoBehaviour {
 		max_verticalVelocity = 10f;
 		 */
 		 thisTransform = transform;
+		//  max_X = AsteroidManager.singleton.GetBoundary().x;
+		//  max_Y = AsteroidManager.singleton.GetBoundary().y;
 	}
 	
 	// Update is called once per frame
@@ -59,17 +61,17 @@ public class PlayerControl : MonoBehaviour {
 			ApplyValues();
 		}
 
-		 if (Input.GetAxis("Jump") > 0){
-			 for(int i=1; i < 2; i++){	
-				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
-				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
-			 }
-		 }else{
-			 for(int i=1; i < 2; i++){	
-				 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
-				 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
-			 }
-		 }
+		//  if (Input.GetAxis("Jump") > 0){
+		// 	 for(int i=1; i < 2; i++){	
+		// 		 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
+		// 		 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+		// 	 }
+		//  }else{
+		// 	 for(int i=1; i < 2; i++){	
+		// 		 transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
+		// 		 transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+		// 	 }
+		//  }
 
 		 if(transform.position.x > max_X ){
 			transform.position = new Vector3(-max_X, transform.position.y, 0);

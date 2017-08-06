@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class Bullet : NetworkBehaviour {
 
-	public Vector2 velocity;
 	public PlayerHealth m_bulletOwner;
 	Transform thisTransform;
 
