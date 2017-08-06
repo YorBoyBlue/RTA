@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_firePosition: {fileID: 0}
   m_bullet: {fileID: 1096268347018914, guid: 6c4776d008300654998fcae9e8b287ed, type: 2}
-  m_shootCooldown: {x: 0, y: 0}
+  m_shootCooldown: {x: 0, y: 0.5}
   m_playerManager: {fileID: 114473987950305156}
   m_hud: {fileID: 114387754230690780}
 --- !u!114 &114163590241461434
