@@ -173,11 +173,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456421244774270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf607b70a320a1e40a659444781ad074, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c4a98f8e2f9f1b429c6ddf046d21c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_X: 0
-  max_Y: 0
+  max_X: 300
+  max_Y: 300
   m_rb2d: {fileID: 50411496628681872}
   size: 1
 --- !u!198 &198740214296142154

@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: Game
   m_SpawnPrefabs:
-  - {fileID: 1289706784069736, guid: 905dfead03365413fb354654bed5bb91, type: 2}
-  - {fileID: 1120582973257318, guid: 85f75ed4980034c699fda8a28047e685, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 1456421244774270, guid: 53f7b0ae5b93c4cf9a6c3af12cc51c3b, type: 2}
   - {fileID: 1417369369755346, guid: 766b17c8ee2979443b5ae5fb25625743, type: 2}
   m_CustomConfig: 0
