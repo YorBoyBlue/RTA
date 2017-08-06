@@ -8,9 +8,12 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField] Image[] m_healthIcons;
 	[SerializeField] Image[] m_shieldIcons;
 	[SerializeField] Text m_kills;
+	[SerializeField] Text m_gameTimer;
 	Color m_hitColor = Color.red;
 	Color m_healthColor = Color.green;
 	Color m_shieldColor = Color.blue;
+
+	public Text GameTimer { get { return m_gameTimer;} set { m_gameTimer = value; }}
 
 	void Start() {
 		UpdateHealthIcons(m_healthIcons.Length);
@@ -52,5 +55,12 @@ public class HUDManager : MonoBehaviour {
 	}
 	public void SetShip4() {
     	m_ShipSelectPanel.SetActive(false);		
+	}
+
+	public void SetTimer(int currentSeconds) {
+		float seconds = currentSeconds % 60;
+		float minutes = (currentSeconds - seconds) / 60;
+		m_gameTimer.text = ((int)minutes).ToString() + ":" + ((int)seconds).ToString();
+		//Debug.Log(((int)minutes).ToString() + ":" + ((int)seconds).ToString());
 	}
 }
