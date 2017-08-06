@@ -80,7 +80,7 @@ public class Asteroid : NetworkBehaviour {
 	void RpcAsteroidDestroy() {
 		GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
 		GetComponent<ParticleSystem>().Play();
-		AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), AudioClip_Enum.EXPLOSION_Test, 0.5f);
+		AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), AudioClip_Enum.EXPLOSION_Test, 0.1f);
 		Destroy(this.gameObject, 1f);
 	}
 
