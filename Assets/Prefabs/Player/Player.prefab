@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4258656786350542}
   - component: {fileID: 198501510277621846}
   - component: {fileID: 199074935472148770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224003320353705620}
   - component: {fileID: 222147575641740538}
   - component: {fileID: 114691621139946330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224360602720301332}
   - component: {fileID: 222328752993775564}
   - component: {fileID: 114669150497150824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224911561528853732}
   - component: {fileID: 222742609978639414}
   - component: {fileID: 114637764945159244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 114210967452911646}
   - component: {fileID: 114752469402137148}
   - component: {fileID: 114712292469269798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4076860311083964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 224273927074621892}
   - component: {fileID: 222059262899137722}
   - component: {fileID: 114498300431599734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 224333126748965168}
   - component: {fileID: 222658521853939238}
   - component: {fileID: 114466941980572752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 224342918570464936}
   - component: {fileID: 222615032980653010}
   - component: {fileID: 114397854226686986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 58554774495756086}
   - component: {fileID: 114183679422581692}
   - component: {fileID: 82211598433811584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ship
   m_TagString: Avatar
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 224139925988579576}
   - component: {fileID: 222380085802800744}
   - component: {fileID: 114515361489726832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 222672487346623802}
   - component: {fileID: 114481191928498636}
   - component: {fileID: 114300008739554046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShipSelectPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 114993069328151156}
   - component: {fileID: 114695684189853138}
   - component: {fileID: 82192846656996308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 222993439093725072}
   - component: {fileID: 114140462015795816}
   - component: {fileID: 114698176691685584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 224934572269279600}
   - component: {fileID: 222756690341551056}
   - component: {fileID: 114074348082505030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 222843473149834998}
   - component: {fileID: 114562891992375332}
   - component: {fileID: 114209945432762234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 224376750422966156}
   - component: {fileID: 222999124580125098}
   - component: {fileID: 114516936281261812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 222140902342711278}
   - component: {fileID: 114890319303738880}
   - component: {fileID: 114138774219566012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4993913812182822}
   - component: {fileID: 198009077226470814}
   - component: {fileID: 199571430810456788}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
