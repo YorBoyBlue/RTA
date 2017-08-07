@@ -69,7 +69,7 @@ public class FreeForAllManager : NetworkBehaviour {
 			PlayerManager pm = g.GetComponent<PlayerManager>();
 			pm.RpcSetCanMove(true);
 			pm.RpcSetBounds(AsteroidManager.singleton.GetBoundary().x, AsteroidManager.singleton.GetBoundary().y);
-			pm.RpcSetName();
+			//pm.RpcSetName();
 		}
 	}
 

@@ -31,6 +31,7 @@ public class PlayerManager : NetworkBehaviour {
             Camera.main.GetComponent<CameraFollow>().SetTargetTransform = transform;
             ActivatePlayer();
             AudioManager.Instance.PlayMusic(Camera.main.GetComponent<AudioSource>());
+            m_nameText.text = m_name;
         } else if(!isLocalPlayer) {
             m_toggleRemote.Invoke(false);
         }

@@ -170,7 +170,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.67, y: 5}
+    oldSize: {x: 3.6, y: 4.96}
     newSize: {x: 3.67, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -363,8 +363,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_X: 30
   max_Y: 30
+  upgrades: {fileID: 0}
+  max_speed: 0
   thrust_speed: 5
-  thrust_velocity: {x: 0, y: 10}
+  ship_velocity: {x: 0, y: 0}
   currentRotation: 0
   rb2d: {fileID: 50066544540495552}
   thisTransform: {fileID: 0}
@@ -6778,7 +6780,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 910608219
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4e4da7810d34145a7aad16dbefaadd6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

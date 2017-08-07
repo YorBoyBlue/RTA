@@ -413,6 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57f1b974b05b72439bf821a97d12aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_X: 0
+  max_Y: 0
+  upgrades: {fileID: 0}
+  max_speed: 0
   thrust_speed: 7.5
   ship_velocity: {x: 0, y: 0}
   currentRotation: 0
