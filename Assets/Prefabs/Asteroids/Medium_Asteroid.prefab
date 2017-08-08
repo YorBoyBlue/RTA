@@ -27,11 +27,7 @@ GameObject:
   - component: {fileID: 114852809347455508}
   - component: {fileID: 199112182036007254}
   - component: {fileID: 198800220403811476}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Medium_Asteroid.prefab
-  - component: {fileID: 82860144972846642}
-=======
   - component: {fileID: 82819326653677604}
->>>>>>> eProt:Assets/Prefabs/Medium_Asteroid.prefab
   m_Layer: 0
   m_Name: Medium_Asteroid
   m_TagString: Medium
@@ -133,11 +129,7 @@ PolygonCollider2D:
       - {x: -0.04, y: -0.76}
       - {x: 0.17, y: -0.7}
       - {x: 0.34, y: -0.62}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Medium_Asteroid.prefab
---- !u!82 &82860144972846642
-=======
 --- !u!82 &82819326653677604
->>>>>>> eProt:Assets/Prefabs/Medium_Asteroid.prefab
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -192,11 +184,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Medium_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Medium_Asteroid.prefab
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -220,11 +208,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Medium_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Medium_Asteroid.prefab
 --- !u!114 &114079331132966674
 MonoBehaviour:
   m_ObjectHideFlags: 1

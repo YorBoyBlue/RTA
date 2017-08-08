@@ -27,11 +27,7 @@ GameObject:
   - component: {fileID: 199686253482725924}
   - component: {fileID: 114335147467717278}
   - component: {fileID: 114369451314159758}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Small_Asteroid.prefab
-  - component: {fileID: 82715204212884568}
-=======
   - component: {fileID: 82682449424978358}
->>>>>>> eProt:Assets/Prefabs/Small_Asteroid.prefab
   m_Layer: 0
   m_Name: Small_Asteroid
   m_TagString: Small
@@ -117,11 +113,7 @@ PolygonCollider2D:
       - {x: 0.42, y: -0.45}
       - {x: 0.53, y: -0.34}
       - {x: 0.61, y: -0.099999994}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Small_Asteroid.prefab
---- !u!82 &82715204212884568
-=======
 --- !u!82 &82682449424978358
->>>>>>> eProt:Assets/Prefabs/Small_Asteroid.prefab
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,11 +168,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Small_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Small_Asteroid.prefab
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -204,11 +192,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Small_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Small_Asteroid.prefab
 --- !u!114 &114335147467717278
 MonoBehaviour:
   m_ObjectHideFlags: 1

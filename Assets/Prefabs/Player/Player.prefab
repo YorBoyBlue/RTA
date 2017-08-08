@@ -192,13 +192,8 @@ GameObject:
   - component: {fileID: 212484100230129566}
   - component: {fileID: 58554774495756086}
   - component: {fileID: 114183679422581692}
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
   - component: {fileID: 82211598433811584}
   m_Layer: 8
-=======
-  - component: {fileID: 82941509198701532}
-  m_Layer: 0
->>>>>>> eProt:Assets/Prefabs/Player.prefab
   m_Name: Ship
   m_TagString: Avatar
   m_Icon: {fileID: 0}
@@ -323,13 +318,8 @@ GameObject:
   - component: {fileID: 114501182094206432}
   - component: {fileID: 114993069328151156}
   - component: {fileID: 114695684189853138}
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
   - component: {fileID: 82192846656996308}
   m_Layer: 8
-=======
-  - component: {fileID: 82366257666354352}
-  m_Layer: 0
->>>>>>> eProt:Assets/Prefabs/Player.prefab
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -577,11 +567,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5000005
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
 --- !u!82 &82192846656996308
-=======
---- !u!82 &82366257666354352
->>>>>>> eProt:Assets/Prefabs/Player.prefab
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -636,11 +622,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
     m_RotationOrder: 4
-=======
-    m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Player.prefab
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -664,13 +646,8 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
     m_RotationOrder: 4
 --- !u!82 &82211598433811584
-=======
-    m_RotationOrder: 0
---- !u!82 &82941509198701532
->>>>>>> eProt:Assets/Prefabs/Player.prefab
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -725,11 +702,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
     m_RotationOrder: 4
-=======
-    m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Player.prefab
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -753,11 +726,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Player/Player.prefab
     m_RotationOrder: 4
-=======
-    m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Player.prefab
 --- !u!114 &114074348082505030
 MonoBehaviour:
   m_ObjectHideFlags: 1

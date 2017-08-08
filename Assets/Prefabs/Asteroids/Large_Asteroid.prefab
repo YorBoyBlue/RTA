@@ -27,11 +27,7 @@ GameObject:
   - component: {fileID: 114349334970090280}
   - component: {fileID: 199866450109980172}
   - component: {fileID: 198937977212248042}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Large_Asteroid.prefab
-  - component: {fileID: 82314923228454484}
-=======
   - component: {fileID: 82298642791731108}
->>>>>>> eProt:Assets/Prefabs/Large_Asteroid.prefab
   m_Layer: 0
   m_Name: Large_Asteroid
   m_TagString: Large
