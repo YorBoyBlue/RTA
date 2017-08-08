@@ -72,6 +72,7 @@ public class Asteroid : NetworkBehaviour {
 				AsteroidManager.singleton.Spawn(0, other.transform.position);
 				AsteroidManager.singleton.Spawn(0, other.transform.position);			
 			}
+			Destroy(this.gameObject, 1f);
 		}
 
 	}
@@ -81,7 +82,6 @@ public class Asteroid : NetworkBehaviour {
 		GetComponent<SpriteRenderer>().color = new Color32(0,0,0,0);
 		GetComponent<ParticleSystem>().Play();
 		AudioManager.Instance.PlayOneShot(GetComponent<AudioSource>(), AudioClip_Enum.EXPLOSION_Test, 0.1f);
-		Destroy(this.gameObject, 1f);
 	}
 
 	[Server]

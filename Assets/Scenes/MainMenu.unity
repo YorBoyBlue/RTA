@@ -471,7 +471,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_SpawnPrefabs.Array.size
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 22459552, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_LocalPosition.x
@@ -585,6 +585,31 @@ Prefab:
       propertyPath: m_GamePlayerPrefab
       value: 
       objectReference: {fileID: 1576199107038608, guid: f19e420e4815ddd47ba57b4da6eaa7b3,
+        type: 2}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1902115919098598, guid: 38b6052f35e306349857065b1342e3ee,
+        type: 2}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1899514553116340, guid: 8b5471d68edb41a47977f60b1bbadd65,
+        type: 2}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 1677560725331708, guid: e159d751462fc464ca24d834bcc72985,
+        type: 2}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1573666617252882, guid: 7f547c979100a5f449fcd730b4bdceac,
+        type: 2}
+    - target: {fileID: 11475086, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1470479934041626, guid: e4cb30271e7a12c498c15f792b96fd65,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
@@ -858,6 +883,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a35cacf9a77a9f408eb827bcd74717f, type: 3}
   - {fileID: 8300000, guid: 80ae6c78d69bd4b4ba4ce7de5fdeeed4, type: 3}
   - {fileID: 8300000, guid: 2946c76e15485ff4f9c8602b72a031eb, type: 3}
+  - {fileID: 8300000, guid: c771a9c8ebd28374fa37ab8b30502bfc, type: 3}
 --- !u!4 &1847454351
 Transform:
   m_ObjectHideFlags: 0

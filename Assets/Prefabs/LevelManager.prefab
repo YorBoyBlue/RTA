@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4065779901959960}
+  - component: {fileID: 114079732143659138}
   - component: {fileID: 114723614999598912}
+  - component: {fileID: 114953127683313098}
   - component: {fileID: 114298032091467894}
   m_Layer: 0
   m_Name: LevelManager
@@ -41,6 +43,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114079732143659138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585643504312242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c18397c610ab7b4aa62499085adbd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  X: 300
+  Y: 300
 --- !u!114 &114298032091467894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73a649e37ccc47db98fd072018ce769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounday_X: 300
-  boundary_Y: 300
+  boundary: {fileID: 114079732143659138}
+  asteroidsMax: 30
   AsteroidSpawn:
   - {x: -50, y: -50, z: 0}
   - {x: -50, y: 50, z: 0}
@@ -95,3 +110,22 @@ MonoBehaviour:
   - {fileID: 1456421244774270, guid: 53f7b0ae5b93c4cf9a6c3af12cc51c3b, type: 2}
   - {fileID: 1289706784069736, guid: c511ba2982d651a4381015142e3e556b, type: 2}
   - {fileID: 1120582973257318, guid: 910c92835361ce8499f9f45a078f4bb6, type: 2}
+--- !u!114 &114953127683313098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585643504312242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e9ecc3a22091641bc895aa45981b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundary: {fileID: 114079732143659138}
+  pickupPrefabs:
+  - {fileID: 1902115919098598, guid: 38b6052f35e306349857065b1342e3ee, type: 2}
+  - {fileID: 1899514553116340, guid: 8b5471d68edb41a47977f60b1bbadd65, type: 2}
+  - {fileID: 1677560725331708, guid: e159d751462fc464ca24d834bcc72985, type: 2}
+  - {fileID: 1573666617252882, guid: 7f547c979100a5f449fcd730b4bdceac, type: 2}
+  - {fileID: 1470479934041626, guid: e4cb30271e7a12c498c15f792b96fd65, type: 2}
+  pickupsMax: 15
