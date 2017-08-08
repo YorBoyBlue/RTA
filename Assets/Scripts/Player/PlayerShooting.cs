@@ -24,7 +24,7 @@ public class PlayerShooting : NetworkBehaviour {
 		} else {
 			if(isLocalPlayer) {
 				if (Input.GetAxis("Fire1") > 0) {
-                    float speedFactor = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.WeaponBoost) ? 1.5f : 1f);
+                    float speedFactor = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.WeaponBoost) ? 2.5f : 1f);
                     m_shootCooldown.x = m_shootCooldown.y / speedFactor;
 
                     int mode = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.WeaponDouble) ? 1 : 0);

@@ -159,11 +159,7 @@ PolygonCollider2D:
       - {x: 0.7, y: -1.4699999}
       - {x: 0.84, y: -1.4499999}
       - {x: 1.01, y: -1.41}
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Large_Asteroid.prefab
---- !u!82 &82314923228454484
-=======
 --- !u!82 &82298642791731108
->>>>>>> eProt:Assets/Prefabs/Large_Asteroid.prefab
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -218,11 +214,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Large_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Large_Asteroid.prefab
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -246,11 +238,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-<<<<<<< HEAD:Assets/Prefabs/Asteroids/Large_Asteroid.prefab
-    m_RotationOrder: 4
-=======
     m_RotationOrder: 0
->>>>>>> eProt:Assets/Prefabs/Large_Asteroid.prefab
 --- !u!114 &114349334970090280
 MonoBehaviour:
   m_ObjectHideFlags: 1

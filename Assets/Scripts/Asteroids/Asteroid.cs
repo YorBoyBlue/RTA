@@ -58,8 +58,8 @@ public class Asteroid : NetworkBehaviour {
 				// m_AsteroidManager.setLargeAsteroids(newLargeAmount);
 				int newMedAmount = AsteroidManager.singleton.getMedAsteroids() + 2;
 				AsteroidManager.singleton.setMedAsteroids(newMedAmount);
-				AsteroidManager.singleton.Spawn(1, other.transform.position);
-				AsteroidManager.singleton.Spawn(1, other.transform.position);
+				AsteroidManager.singleton.Spawn(1, transform.position);
+				AsteroidManager.singleton.Spawn(1, transform.position);
 			}
 			if(this.tag == "Medium"){				
 				// int newMedAmount = m_AsteroidManager.getMedAsteroids() - 1;
@@ -69,8 +69,8 @@ public class Asteroid : NetworkBehaviour {
 				
 				int newSmallAmount = AsteroidManager.singleton.getSmallAsteroids() + 2;
 				AsteroidManager.singleton.setSmallAsteroids(newSmallAmount);
-				AsteroidManager.singleton.Spawn(0, other.transform.position);
-				AsteroidManager.singleton.Spawn(0, other.transform.position);			
+				AsteroidManager.singleton.Spawn(0, transform.position);
+				AsteroidManager.singleton.Spawn(0, transform.position);			
 			}
 			Destroy(this.gameObject, 1f);
 		}

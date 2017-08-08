@@ -76,7 +76,7 @@ public class PlayerControl : MonoBehaviour {
 		if(transform.position.y > max_Y ){
 			transform.position = new Vector3(transform.position.x, -max_Y, 0);
 		}else if(transform.position.y < -max_Y){
-			transform.position = new Vector3(transform.position.x, -max_Y, 0);
+			transform.position = new Vector3(transform.position.x, max_Y, 0);
 		}
 	}
 
