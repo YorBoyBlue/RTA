@@ -7,13 +7,17 @@ using UnityEngine.Networking;
 public class AsteroidManager : NetworkBehaviour {
 
 	public static AsteroidManager singleton = null;
+	public MapBoundary boundary;
 
-	public float bounday_X;
-	public float boundary_Y;
+	public float boundary_X { get { return boundary.X; } }
+	public float boundary_Y { get { return boundary.Y; } }
+	
 	private int smallAsteroids = 0;
 	private int medAsteroids = 0;
 	private int largeAsteroids = 0;
-	private int totalAsteroids = 0;
+
+	int asteroidsTotal = 0;
+	[SerializeField] int asteroidsMax;
 
 	Vector2 asteroidVelocity = new Vector2(0, 0);
 	public Vector3[] AsteroidSpawn;
@@ -24,7 +28,7 @@ public class AsteroidManager : NetworkBehaviour {
 	public override void OnStartServer() {
 		for (int i = 0; i < 10; i++) {			
 			int randomSize = Random.Range(0,AsteroidPrefabs.Length);
-			Spawn(randomSize, new Vector3(Random.Range(-bounday_X, bounday_X), Random.Range(-boundary_Y, boundary_Y), 0));
+			Spawn(randomSize, new Vector3(Random.Range(-boundary_X, boundary_X), Random.Range(-boundary_Y, boundary_Y), 0));
 			if(randomSize == 0){
 				smallAsteroids += 1;
 			} 
@@ -49,9 +53,9 @@ public class AsteroidManager : NetworkBehaviour {
 
 	[Server]
 	void Update () {
-		totalAsteroids = smallAsteroids + medAsteroids + largeAsteroids;
+		asteroidsTotal = smallAsteroids + medAsteroids + largeAsteroids;
 
-		if(totalAsteroids < 5){
+		if(asteroidsTotal < asteroidsMax){
 
 			MaintainAstroids();
 		}
@@ -64,7 +68,7 @@ public class AsteroidManager : NetworkBehaviour {
 	[Server]
 	private void MaintainAstroids(){		
 		int randomSize = Random.Range(0,AsteroidPrefabs.Length);
-		Spawn(2 , new Vector3(Random.Range(-bounday_X, bounday_X), Random.Range(-boundary_Y, boundary_Y), 0));	
+		Spawn(2 , new Vector3(Random.Range(-boundary_X, boundary_X), Random.Range(-boundary_Y, boundary_Y), 0));	
 	}
 	
 	[Server]
@@ -97,12 +101,12 @@ public class AsteroidManager : NetworkBehaviour {
 
 	[Server]
 	public int GetTotalAstroids(){
-		return totalAsteroids;
+		return asteroidsTotal;
 	}
 
 	[Server]
 	public Vector2 GetBoundary() {
-		Vector2 boundary = new Vector2(bounday_X, boundary_Y);
+		Vector2 boundary = new Vector2(boundary_X, boundary_Y);
 		return boundary;
 	}	
 
@@ -126,7 +130,7 @@ public class AsteroidManager : NetworkBehaviour {
 		GameObject asteroid = Instantiate(AsteroidPrefabs[size], location, Quaternion.identity);		
 		// Debug.Log(location);
 		//asteroid.transform.SetParent(this.transform);
-		asteroid.GetComponent<Asteroid>().max_X = bounday_X;
+		asteroid.GetComponent<Asteroid>().max_X = boundary_X;
 		asteroid.GetComponent<Asteroid>().max_Y = boundary_Y;
 		if(velocity == Vector2.zero) {
 			asteroidVelocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));

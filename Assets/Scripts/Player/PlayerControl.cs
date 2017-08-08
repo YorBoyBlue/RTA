@@ -36,6 +36,9 @@ public class PlayerControl : MonoBehaviour {
 	 */
 	 public Transform thisTransform;
 
+	 public ParticleSystem[] engineParticles;
+	 public TrailRenderer trails;
+
 	 [SerializeField]
 	 GameObject bullet;
 
@@ -53,6 +56,7 @@ public class PlayerControl : MonoBehaviour {
 		 thisTransform = transform;
 		//  max_X = AsteroidManager.singleton.GetBoundary().x;
 		//  max_Y = AsteroidManager.singleton.GetBoundary().y;
+
 	}
 	
 	// Update is called once per frame
@@ -93,9 +97,11 @@ public class PlayerControl : MonoBehaviour {
 	void ReadyValues() {
 		float v = Input.GetAxisRaw("Jump");
 		if (v > 0) {
-
-			thisTransform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Play();
-			thisTransform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Play();
+			
+			if (engineParticles.Length > 0) {
+				engineParticles[0].Play();
+				engineParticles[1].Play();
+			}
 
 			float speed = v * thrust_speed * Time.deltaTime;
 			
@@ -105,8 +111,10 @@ public class PlayerControl : MonoBehaviour {
 				ship_velocity = Vector2.ClampMagnitude(ship_velocity, max_speed);
 			}
 		} else {			
-			thisTransform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>().Stop();
-			thisTransform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>().Stop();
+			if (engineParticles.Length > 0) {
+				engineParticles[0].Stop();
+				engineParticles[1].Stop();
+			}
 		}
 	}
 
