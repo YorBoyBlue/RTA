@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundary: {fileID: 114079732143659138}
-  asteroidsMax: 30
+  asteroidsMax: 200
   AsteroidSpawn:
   - {x: -50, y: -50, z: 0}
   - {x: -50, y: 50, z: 0}
@@ -128,4 +128,4 @@ MonoBehaviour:
   - {fileID: 1677560725331708, guid: e159d751462fc464ca24d834bcc72985, type: 2}
   - {fileID: 1573666617252882, guid: 7f547c979100a5f449fcd730b4bdceac, type: 2}
   - {fileID: 1470479934041626, guid: e4cb30271e7a12c498c15f792b96fd65, type: 2}
-  pickupsMax: 15
+  pickupsMax: 30
