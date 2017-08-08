@@ -112,8 +112,8 @@ public class PlayerControl : MonoBehaviour {
 			}
 		} else {			
 			if (engineParticles.Length > 0) {
-				engineParticles[0].Play();
-				engineParticles[1].Play();
+				engineParticles[0].Stop();
+				engineParticles[1].Stop();
 			}
 		}
 	}
