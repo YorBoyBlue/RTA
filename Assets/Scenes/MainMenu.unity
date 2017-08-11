@@ -590,6 +590,14 @@ Prefab:
       value: 
       objectReference: {fileID: 1576199107038608, guid: f19e420e4815ddd47ba57b4da6eaa7b3,
         type: 2}
+    - target: {fileID: 181906, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_Name
+      value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402578, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
+      propertyPath: m_Text
+      value: Blasteroids!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
   m_IsPrefabParent: 0
