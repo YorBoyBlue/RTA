@@ -20,6 +20,8 @@ public class PlayerManager : NetworkBehaviour {
     [SerializeField] Text m_nameText;
     [SyncVar] public string m_name = "Player";
 
+    [SerializeField] SpriteRenderer m_miniMapIcon;
+
     float m_respawnDelay = 5f;
 
     Camera m_mainCamera;
@@ -28,12 +30,14 @@ public class PlayerManager : NetworkBehaviour {
 	
     void Start() {
         if(isLocalPlayer) {
+            m_miniMapIcon.color = Color.green;
             Camera.main.GetComponent<CameraFollow>().SetTargetTransform = transform;
             ActivatePlayer();
             AudioManager.Instance.PlayMusic(Camera.main.GetComponent<AudioSource>());
             m_nameText.text = m_name;
         } else if(!isLocalPlayer) {
             m_toggleRemote.Invoke(false);
+            m_miniMapIcon.color = Color.red;
         }
     }
 
