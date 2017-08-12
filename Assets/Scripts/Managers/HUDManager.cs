@@ -9,9 +9,9 @@ public class HUDManager : MonoBehaviour {
 	[SerializeField] Image[] m_shieldIcons;
 	[SerializeField] Text m_kills;
 	[SerializeField] Text m_gameTimer;
-	Color m_hitColor = Color.red;
-	Color m_healthColor = Color.green;
-	Color m_shieldColor = Color.blue;
+	Color m_hitColor = Color.black;
+	Color m_healthColor = Color.magenta;
+	Color m_shieldColor = Color.cyan;
 
 	public Text GameTimer { get { return m_gameTimer;} set { m_gameTimer = value; }}
 
