@@ -78,6 +78,11 @@ namespace Prototype.NetworkLobby
             lobbyManager.ChangeTo(lobbyServerList);
         }
 
+        public void OnClickExit() 
+        {
+            Application.Quit();
+        }
+
         void onEndEditIP(string text)
         {
             if (Input.GetKeyDown(KeyCode.Return))
