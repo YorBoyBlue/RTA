@@ -27,7 +27,7 @@ public class Bullet : NetworkBehaviour {
 	[Server]
 	void OnTriggerEnter2D(Collider2D other) {
 		if(other.gameObject.CompareTag("Avatar")) {
-			GameObject parent = other.gameObject.transform.parent.gameObject;
+			GameObject parent = other.gameObject.transform.parent.transform.parent.gameObject;
 			if(m_bulletOwner != parent.GetComponent<PlayerHealth>()) {
 				if(parent.GetComponent<PlayerHealth>().TakeDamage()) {
 					m_bulletOwner.Kills++;

@@ -29,31 +29,32 @@ public class PlayerShooting : NetworkBehaviour {
 
                     int mode = (GetComponent<PlayerUpgrades>().ConsumeUpgrade(PickupType.WeaponDouble) ? 1 : 0);
 
-					CmdShoot(50f * speedFactor, mode);
+                    Vector2 bulletSpeed = m_playerManager.GetControl.shipModel.forward * 50f * speedFactor;
+					CmdShoot(bulletSpeed, mode);
 				}
 			}
 		}
     }
 
 	[Command]
-	void CmdShoot(float speed, int mode) {
+	void CmdShoot(Vector2 bulletSpeed, int mode) {
         // m_playerManager.AudioManager.PlayAudioClip(AudioClips.MAIN_WEAPON, 1);
         RpcShoot(AudioClip_Enum.WEAPON_Blaster);
         if (mode == 0) {
             GameObject newBullet = Instantiate(m_bullet, transform.position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-            newBullet.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
+            newBullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
             newBullet.transform.GetChild(0).rotation = transform.rotation;
             NetworkServer.Spawn(newBullet);
         } else if (mode == 1) {
             GameObject newBullet1 = Instantiate(m_bullet, transform.position + transform.right, Quaternion.identity);
             GameObject newBullet2 = Instantiate(m_bullet, transform.position - transform.right, Quaternion.identity);
             newBullet1.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-            newBullet1.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
+            newBullet1.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
             newBullet1.transform.GetChild(0).rotation = transform.rotation;
             NetworkServer.Spawn(newBullet1);
             newBullet2.GetComponent<Bullet>().m_bulletOwner = this.gameObject.GetComponent<PlayerHealth>();
-            newBullet2.GetComponent<Rigidbody2D>().velocity = transform.forward * speed;
+            newBullet2.GetComponent<Rigidbody2D>().velocity = bulletSpeed;
             newBullet2.transform.GetChild(0).rotation = transform.rotation;
             NetworkServer.Spawn(newBullet2);
         }
@@ -63,7 +64,7 @@ public class PlayerShooting : NetworkBehaviour {
      */
     [ClientRpc]
     void RpcShoot(AudioClip_Enum type) {            
-        AudioManager.Instance.PlayOneShot(transform.GetChild(0).GetComponent<AudioSource>(), type, .25f, Random.Range(1, 1.25f));
+        AudioManager.Instance.PlayOneShot(transform.GetChild(0).GetChild(0).GetComponent<AudioSource>(), type, .25f, Random.Range(1, 1.25f));
         // Debug.Log("FIRE");
     }
 

@@ -27,6 +27,7 @@ public class PlayerManager : NetworkBehaviour {
     Camera m_mainCamera;
 
     public bool GetLocalPlayer { get { return isLocalPlayer; }}
+    public PlayerControl GetControl { get { return m_playerControl; } }
 	
     void Start() {
         if(isLocalPlayer) {

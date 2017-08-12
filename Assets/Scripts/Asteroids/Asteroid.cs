@@ -48,7 +48,7 @@ public class Asteroid : NetworkBehaviour {
 		// }
 		} else if (other.gameObject.tag == "Avatar") {
 			split = true;
-			other.transform.parent.GetComponent<PlayerHealth>().TakeDamage();
+			other.transform.parent.transform.parent.GetComponent<PlayerHealth>().TakeDamage();
 		}
 		if (split) {			
 			GetComponent<PolygonCollider2D>().enabled = false;

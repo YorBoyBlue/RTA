@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -35,12 +36,15 @@ public class PlayerControl : MonoBehaviour {
 	We need to cache the transform of this object
 	 */
 	 public Transform thisTransform;
+	 public Transform shipModel;
 
 	 public ParticleSystem[] engineParticles;
 	 public TrailRenderer trails;
 
 	 [SerializeField]
 	 GameObject bullet;
+
+	 public NetworkTransform networkTransform;
 
 	public Vector2 shootCooldown;
 	
@@ -61,12 +65,14 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (CanMove) {
 			RotateShip();
 
 			ReadyValues();
 			ApplyValues();
 		}
+
 
 		 if(transform.position.x > max_X ){
 			transform.position = new Vector3(-max_X, transform.position.y, 0);
@@ -78,6 +84,7 @@ public class PlayerControl : MonoBehaviour {
 		}else if(transform.position.y < -max_Y){
 			transform.position = new Vector3(transform.position.x, max_Y, 0);
 		}
+
 	}
 
 	/*
@@ -88,7 +95,7 @@ public class PlayerControl : MonoBehaviour {
 		mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
 		Vector3 newMousePos = Camera.main.ScreenToWorldPoint(mousePos);
 		// Debug.Log(newMousePos);
-		thisTransform.LookAt(newMousePos, Vector3.back);
+		shipModel.LookAt(newMousePos, Vector3.back);
 		// rotation_velocity.x = Vector2.Angle(thisTransform.position, newMousePos);
 		// Debug.Log(rotation_velocity.x);
 	}
@@ -97,24 +104,15 @@ public class PlayerControl : MonoBehaviour {
 	void ReadyValues() {
 		float v = Input.GetAxisRaw("Jump");
 		if (v > 0) {
-			
-			if (engineParticles.Length > 0) {
-				engineParticles[0].Play();
-				engineParticles[1].Play();
-			}
 
 			float speed = v * thrust_speed * Time.deltaTime;
 			
-			ship_velocity = (Vector2)(thisTransform.forward * speed) + rb2d.velocity;
+			ship_velocity = (Vector2)(shipModel.forward * speed) + rb2d.velocity;
 
 			if (Vector2.SqrMagnitude(ship_velocity) > Mathf.Pow(max_speed, 2)) {
 				ship_velocity = Vector2.ClampMagnitude(ship_velocity, max_speed);
 			}
-		} else {			
-			if (engineParticles.Length > 0) {
-				engineParticles[0].Stop();
-				engineParticles[1].Stop();
-			}
+		} else {		
 		}
 	}
 

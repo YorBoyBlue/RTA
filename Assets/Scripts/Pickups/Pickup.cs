@@ -20,7 +20,7 @@ public class Pickup : NetworkBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Avatar") {
 			PickupManager.Instance.DecrementPickupsTotal();
-			other.transform.parent.GetComponent<PlayerUpgrades>().AddUpgrade(this);
+			other.transform.parent.transform.parent.GetComponent<PlayerUpgrades>().AddUpgrade(this);
 			Destroy(gameObject);
 		}
 	}
